@@ -1,0 +1,56 @@
+.info-view {
+  > div {
+    padding: 0 8px 40px 8px;
+  }
+  .icon,
+  .title {
+    vertical-align: middle;
+  }
+  .icon {
+    width: 64px;
+    height: 64px;
+    color: #2196f3;
+  }
+  .title {
+    font-size: 40px;
+    line-height: 1;
+  }
+  .messaje {
+    font-size: 16px;
+  }
+  .suggest {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #2196f3;
+    border-left: 6px solid;
+    border-radius: 4px;
+    background: #e3f2fd;
+    padding: 2px 6px;
+    display: inline-block;
+  }
+  .url {
+    color: #2196f3;
+  }
+  .action-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    line-height: 1;
+  }
+  // Types
+  &.danger {
+    .icon {
+      color: #f44336;
+    }
+  }
+  &.warning {
+    .icon {
+      color: #ff9800;
+    }
+  }
+  &.success {
+    .icon {
+      color: #4caf50;
+    }
+  }
+}

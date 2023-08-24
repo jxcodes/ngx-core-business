@@ -1,0 +1,7 @@
+@import "src/scss/vars.scss";
+.dark-theme progress-view {
+  background-color: $darkThemeDefaultBgColor;
+  span{
+    color: $darkThemeDefaultTextColor;
+  }
+}

@@ -1,0 +1,40 @@
+@import "../vars";
+.mat-date-range-input-inner.filter-text__input,
+.filter-text__input {
+  min-height: 26px;
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  height: 26px;
+  border: 1px solid #bdbdbd;
+  border-radius: $filter-input-border-radius;
+  outline-color: $accent-color;
+  &:focus-visible {
+    outline-color: $primary-color;
+    outline-color: $primary-color;
+    outline-style: solid;
+    outline-width: 1px;
+    border-color: $primary-color;
+  }
+}
+.filter-list__select {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  height: 26px;
+  border: 1px solid #bdbdbd;
+  border-radius: $filter-input-border-radius;
+  outline-color: $accent-color;
+}
+
+.filter-date-range .mat-form-field-infix {
+  padding: 0;
+}
+
+.filter-date-range .mat-form-field-suffix button {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  top: 5px;
+  right: -8px;
+}

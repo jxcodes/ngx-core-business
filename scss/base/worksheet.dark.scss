@@ -1,0 +1,12 @@
+@import "../vars";
+.dark-theme {
+  .worksheet {
+    background-color: #303030;
+    .title {
+      color: #fff;
+    }
+    .group-title {
+      color: #fff;
+    }
+  }
+}

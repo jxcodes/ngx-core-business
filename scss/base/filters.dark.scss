@@ -1,0 +1,11 @@
+@import "../vars";
+.dark-theme {
+  .filter-text__input {
+    background-color: #424242;
+    color: white;
+    border-color: #838383;
+    &:focus-visible {
+      border-color: $primary-color !important;
+    }
+  }
+}

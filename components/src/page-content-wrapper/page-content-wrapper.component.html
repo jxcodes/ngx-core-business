@@ -1,0 +1,4 @@
+<ngbiz-progress-view *ngIf="page.shouldShowProgressView()"></ngbiz-progress-view>
+<ngbiz-data-error-view *ngIf="page.shouldShowErrorView()" [status]="page.getErrorStatus()"
+  (actionClick)="page.loadData()"></ngbiz-data-error-view>
+<ng-content></ng-content>

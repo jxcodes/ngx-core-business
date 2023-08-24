@@ -1,0 +1,26 @@
+<mat-toolbar role="heading" color="primary">
+  <button mat-icon-button (click)="menuButtonClick.emit()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{appName}}</span>
+  <span class="fill"></span>
+  <div class="block-user-idenfication">
+    <mat-icon>account_circle</mat-icon>
+    <div class="names-wrapper">
+      <div>{{userName}}</div>
+      <div>{{roleName}}</div>
+    </div>
+  </div>
+  <!-- Separator-->
+  <span class="separator"></span>
+  <div class="block md:hidden">
+    <button mat-icon-button (click)="logoutButtonClick.emit()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+  <div class="hidden md:block">
+    <button mat-button (click)="logoutButtonClick.emit()">
+      <span>{{logoutText}}</span>
+    </button>
+  </div>
+</mat-toolbar>

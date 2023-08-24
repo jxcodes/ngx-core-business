@@ -1,0 +1,48 @@
+@import "../vars";
+// Foreground colors
+.fg-primary {
+  color: $primary-color !important;
+}
+.fg-accent {
+  color: $accent-color !important;
+}
+// Background colors
+.bg-body {
+  background: $body-bg-color;
+}
+.bg-primary {
+  background-color: $primary-color !important;
+}
+.fg-disabled {
+  color: #eeeeee;
+}
+.fg-danger {
+  color: #f44336;
+}
+.fg-warn {
+  color: #ff5722;
+}
+.fg-success {
+  color: #4caf50;
+}
+// Foreground colors
+
+// Background colors
+.bg-alert {
+  background-color: #f44336;
+}
+.bg-warn {
+  background-color: #ff5722;
+}
+/**
+ * Material colors:
+ *
+ * Background: bg-mat-{color}-{value}
+ * Foreground: fg-mat-{color}-{value}
+ * Foreground: bd-mat-{color}-{value}
+ *
+ */
+
+.bg-mat-yellow-100 {
+  background-color: #fff9c4;
+}

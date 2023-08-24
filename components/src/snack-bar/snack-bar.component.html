@@ -1,0 +1,4 @@
+<div [innerHTML]="data.html"></div>
+<div *ngIf="data.action" class="text-right">
+  <button mat-button (click)="snackBar.dismiss()">{{data.action}}</button>
+</div>

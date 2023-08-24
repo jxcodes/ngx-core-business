@@ -1,0 +1,16 @@
+@import "../vars";
+.file-uploader {
+  .file-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .file-size-label {
+    font-size: 12px;
+    padding-top: 0.25rem;
+    color: #757575;
+  }
+  .btn-select-other {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

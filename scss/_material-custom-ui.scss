@@ -1,0 +1,290 @@
+/**
+ * Añadir aqui estilos personalizados para los componentes material
+ */
+//  Import application variables
+@import "./vars";
+.mat-mdc-button-base.ui-mat-rounded-button {
+  border-radius: 16px;
+}
+
+.ui-mat-lite-table {
+  // Ancho columna Nº/ID
+  .mat-column-_rownumber,
+  .mat-column-id {
+    width: 20px;
+  }
+  /* Font-sizes*/
+  th {
+    font-weight: normal;
+  }
+  th,
+  td {
+    font-size: 12px;
+  }
+  &.fs12 th,
+  &.fs12 td {
+    font-size: 12px;
+  }
+  &.fs13 th,
+  &.fs13 td {
+    font-size: 13px;
+  }
+  border-collapse: initial;
+  thead tr.mat-mdc-header-row {
+    height: 20px;
+  }
+  thead tr.mat-mdc-header-row th {
+    font-size: 13px;
+    padding: 2px 6px;
+    line-height: 1;
+    background-color: #e6e6e6;
+    color: #212121;
+    border-top: 1px solid #b3b0ad;
+    border-bottom: 1px solid #b3b0ad;
+    &.mat-mdc-table-sticky-border-elem-right {
+      border-left: 1px solid #b3b0ad;
+    }
+  }
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .mat-mdc-row td {
+    &.mat-mdc-cell {
+      padding: 4px 6px;
+      line-height: 1;
+      border-bottom-color: #e0e0e0;
+      &.mat-mdc-table-sticky {
+        padding: 0 6px;
+      }
+      &.actions-cell {
+        padding: 0;
+      }
+    }
+    &.cell-inline-actions {
+      padding: 0;
+      .cell-inline-actions-body {
+        padding-left: 6px;
+        padding-right: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 24px;
+      }
+    }
+    .common-cell-padding {
+      padding: 4px 6px;
+    }
+    .cell-horizontal-padding {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .cell-vertical-padding {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+  &.mat-mdc-table tr.mat-mdc-row {
+    height: unset;
+    min-height: 32px;
+  }
+  /*   .mat-table-sticky:first-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .mat-table-sticky:last-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+  } */
+  td.mat-mdc-cell:first-of-type,
+  td.mat-mdc-footer-cell:first-of-type,
+  th.mat-mdc-header-cell:first-of-type {
+    padding-left: 16px;
+  }
+  td.mat-mdc-cell:last-of-type,
+  td.mat-mdc-footer-cell:last-of-type,
+  th.mat-mdc-header-cell:last-of-type {
+    padding-right: 16px;
+  }
+  // Actions
+  .action-button {
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    color: #e0e0e0;
+    margin: 2px;
+    border-radius: 50%;
+  }
+  .action-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  tr:hover .action-edit {
+    color: #1976d2;
+  }
+  tr:hover .action-delete {
+    color: #f44336;
+  }
+  .action-button mat-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+    background-color: #fafafa;
+  }
+  // Hover effect
+  .mat-mdc-row:not(.row-selected):hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    .mat-mdc-table-sticky-border-elem-right {
+      background-color: #f5f5f5;
+    }
+  }
+  .row-selected {
+    background: #e0e0e0;
+    .mat-mdc-table-sticky-border-elem-right {
+      border-left-color: #c7c7c7;
+      background-color: #e0e0e0;
+    }
+  }
+  .document-name-wrapper {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    .icon-block {
+      margin-right: 8px;
+      mat-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .text-block {
+      flex: 1;
+    }
+  }
+}
+.ui-mat-nav-tabs {
+  .mat-mdc-tab-link {
+    height: 32px;
+    padding: 0 16px;
+    min-width: initial;
+    font-weight: normal;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.
+ */
+  /*TODO(mdc-migration): The following rule targets internal classes of tabs that may no longer apply for the MDC version.
+ */
+  .mat-mdc-tab-link.mat-tab-label-active {
+    opacity: 1;
+    font-weight: bold;
+  }
+  .mat-ink-bar {
+    height: 3px;
+  }
+  &.mat-mdc-tab-nav-bar {
+    border-bottom-color: #b3b0ad;
+  }
+  &.no-border {
+    border-bottom: 0;
+  }
+}
+.ui-mat-async-process-button {
+  /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.
+ */
+  /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.
+ */
+  .mat-button-wrapper span {
+    vertical-align: middle;
+  }
+  .mif-spinner {
+    font-size: 16px;
+    margin-right: 4px;
+  }
+  &.processing {
+    /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.
+ */
+    /*TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.
+ */
+    .mat-button-wrapper {
+      color: $primary-color;
+    }
+  }
+}
+.mat-mdc-dialog-actions.ui-mat-editor-dialog-actions {
+  padding-top: 20px;
+  button:last-child {
+    margin-left: 16px;
+  }
+}
+
+// MODIFIERS
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+.mdf-mat-table-bd-t,
+.mdf-mat-paginator-bd-t {
+  border-top: 1px solid #d5d5d5;
+}
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+.mdf-mat-table-bd-r,
+.mdf-mat-paginator-bd-r {
+  border-right: 1px solid #d5d5d5;
+}
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+.mdf-mat-table-bd-b,
+.mdf-mat-paginator-bd-b {
+  border-bottom: 1px solid #d5d5d5;
+}
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+/*TODO(mdc-migration): The following rule targets internal classes of paginator that may no longer apply for the MDC version.
+ */
+.mdf-mat-table-bd-l,
+.mdf-mat-paginator-bd-b {
+  border-left: 1px solid #d5d5d5;
+}
+/**
+ *
+ * Menu items:
+ *  - Edit
+ *  - Delete
+ */
+
+.mat-mdc-menu-item {
+  &.mdf-menu-item--delete {
+    > mat-icon {
+      color: #f44336;
+    }
+    &:hover {
+      color: #d32f2f;
+      > mat-icon {
+        color: #d32f2f;
+      }
+    }
+  }
+  &.mdf-menu-item--edit {
+    > mat-icon {
+      color: blue;
+    }
+    &:hover {
+      color: darken(blue, 10);
+      > mat-icon {
+        color: darken(blue, 10);
+      }
+    }
+  }
+}
+
+/**
+ * Expansion panel
+ */
+.ui-mat-expansion-panel--body-no-padding .mat-expansion-panel-body {
+  padding: 0;
+}

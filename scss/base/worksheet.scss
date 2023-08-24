@@ -1,0 +1,100 @@
+@import "../vars";
+@import "./worksheet.dark";
+.worksheet-host {
+  display: block;
+  padding: 20px 16px 40px;
+}
+.worksheet-outer-box {
+  width: 100%;
+  max-width: 960px !important;
+  margin: 0 auto;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  .worksheet {
+    box-shadow: none;
+  }
+}
+.worksheet-head-bar,
+.worksheet-footer {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: $primary-color;
+  a,
+  button {
+    color: #fff;
+  }
+}
+
+.worksheet {
+  width: 100%;
+  max-width: 960px !important;
+  margin: 0 auto;
+  padding: 24px 16px;
+  background-color: #fff;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  .title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    color: $worksheet-title-color;
+    line-height: 1;
+  }
+  .group {
+    margin-top: 24px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  .group-title {
+    font-size: 15px;
+    color: $worksheet-title-color;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+  .group-title::before {
+    content: "\276F";
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  .group-body {
+    margin-left: 16px;
+  }
+  .row-bottom-buttons {
+    margin-top: 24px;
+  }
+  .row-bottom-buttons button,
+  .row-bottom-buttons app-process-button {
+    margin: 16px 16px 0 0;
+  }
+  .row-bottom-buttons button:first-child {
+    margin-left: 0;
+  }
+  .row-bottom-buttons button:last-child {
+    margin-right: 0;
+  }
+  &.responsive {
+    padding: 40px 25px;
+  }
+}
+
+@media (min-width: 576px) {
+  .worksheet {
+    padding: 60px 40px !important;
+  }
+}
+
+@media print {
+  .worksheet {
+    box-shadow: none;
+    margin: auto;
+    .row-bottom-buttons {
+      display: none !important;
+    }
+  }
+  .worksheet-outer-box {
+    box-shadow: none;
+  }
+}

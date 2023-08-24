@@ -1,0 +1,18 @@
+{
+  "name": "ngx-kit-business",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "sass": "./sass/_index.scss"
+    }
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
+    "@angular/material": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
