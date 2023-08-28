@@ -1,0 +1,211 @@
+/**
+ * mat-table customization
+ * name: lite
+ * component: mat-table
+ */
+@import "../../vars";
+
+.ngbiz-custom-material__mat-table--lite {
+  // Ancho columna Nº/ID
+  &.mat-mdc-table {
+    border-bottom: 1px solid $ngbiz-table-cell-border-color;
+    tr.mat-mdc-row {
+      height: unset;
+      min-height: 32px;
+    }
+  }
+  .mat-column-_rownumber,
+  .mat-column-id {
+    width: 20px;
+  }
+  /* Font-sizes*/
+  th {
+    font-weight: normal;
+  }
+  th,
+  td {
+    font-size: 12px;
+  }
+  &.fs12 th,
+  &.fs12 td {
+    font-size: 12px;
+  }
+  &.fs13 th,
+  &.fs13 td {
+    font-size: 13px;
+  }
+  border-collapse: initial;
+  thead tr.mat-mdc-header-row {
+    height: 20px;
+  }
+  thead tr.mat-mdc-header-row th {
+    font-size: 13px;
+    padding: 2px 6px;
+    line-height: 1;
+    background-color: #e6e6e6;
+    color: #212121;
+    border-top: 1px solid #b3b0ad;
+    border-bottom: 1px solid #b3b0ad;
+    &.mat-mdc-table-sticky-border-elem-right {
+      border-left: 1px solid #b3b0ad;
+    }
+  }
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+  .mat-mdc-row td {
+    &.mat-mdc-cell {
+      padding: 4px 6px;
+      line-height: 1;
+      border-bottom-color: $ngbiz-table-cell-border-color;
+      &.mat-mdc-table-sticky {
+        padding: 0 6px;
+      }
+      &.actions-cell {
+        padding: 0;
+      }
+    }
+    &.cell-inline-actions {
+      padding: 0;
+      .cell-inline-actions-body {
+        padding-left: 6px;
+        padding-right: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 24px;
+      }
+    }
+    .common-cell-padding {
+      padding: 4px 6px;
+    }
+    .cell-horizontal-padding {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .cell-vertical-padding {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+
+  td.mat-mdc-cell:first-of-type,
+  td.mat-mdc-footer-cell:first-of-type,
+  th.mat-mdc-header-cell:first-of-type {
+    padding-left: 16px;
+  }
+  td.mat-mdc-cell:last-of-type,
+  td.mat-mdc-footer-cell:last-of-type,
+  th.mat-mdc-header-cell:last-of-type {
+    padding-right: 16px;
+  }
+  // Actions
+  .action-button {
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    color: #e0e0e0;
+    margin: 2px;
+    border-radius: 50%;
+  }
+  .action-button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  tr:hover .action-edit {
+    color: #1976d2;
+  }
+  tr:hover .action-delete {
+    color: #f44336;
+  }
+  .action-button mat-icon {
+    width: 16px;
+    height: 16px;
+  }
+  .mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid $ngbiz-table-cell-border-color;
+    background-color: #fafafa;
+  }
+  // Hover effect
+  .mat-mdc-row:not(.row-selected):hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+    .mat-mdc-table-sticky-border-elem-right {
+      background-color: #f5f5f5;
+    }
+  }
+  .row-selected {
+    background: #e0e0e0;
+    .mat-mdc-table-sticky-border-elem-right {
+      border-left-color: #c7c7c7;
+      background-color: #e0e0e0;
+    }
+  }
+  .document-name-wrapper {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+    .icon-block {
+      margin-right: 8px;
+      mat-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .text-block {
+      flex: 1;
+    }
+  }
+  .row-actions-container {
+    display: none;
+    a,
+    button,
+    .mat-mdc-icon-button {
+      width: 24px;
+      height: 24px;
+      line-height: 16px;
+      margin: 0 4px;
+      color: #424242;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 0;
+      mat-icon {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      &.mini {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        margin: 0 4px;
+        mat-icon {
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+        }
+      }
+      &.view {
+        padding-top: 1px;
+      }
+      &.view:not(.mat-button-disabled):hover {
+        color: #2196f3;
+      }
+      &.edit:not(.mat-button-disabled):hover {
+        color: #2196f3;
+      }
+      &.delete:not(.mat-button-disabled):hover {
+        color: #f44336;
+      }
+      &.success:not(.mat-button-disabled):hover {
+        color: #4caf50;
+      }
+    }
+  }
+  tr:hover .row-actions-container {
+    display: block;
+  }
+}

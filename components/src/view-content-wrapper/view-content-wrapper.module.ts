@@ -4,11 +4,11 @@ import { CommonModule } from "@angular/common";
 import { NgBizDataErrorViewModule } from "../data-error-view";
 import { NgBizProgressViewModule } from "../progress-view";
 
-import { PageContentWrapperComponent } from "./page-content-wrapper.component";
+import { ViewContentWrapperComponent } from "./view-content-wrapper.component";
 
 @NgModule({
   declarations: [
-    PageContentWrapperComponent,
+    ViewContentWrapperComponent,
   ],
   imports: [
     CommonModule,
@@ -16,7 +16,7 @@ import { PageContentWrapperComponent } from "./page-content-wrapper.component";
     NgBizProgressViewModule,
   ],
   exports: [
-    PageContentWrapperComponent,
+    ViewContentWrapperComponent,
   ],
 })
-export class NgBizPageContentWrapperModule { }
+export class NgBizViewContentWrapperModule { }

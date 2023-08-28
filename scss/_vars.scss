@@ -3,15 +3,17 @@
  */
 
  // Primary, accent, warning and danger colors:
-$primary-color: #689f38;
-$accent-color:  #37474f;
-$warning-color: #ff9800;
-$danger-color:  #f44336;
-$info-color:    #2196f3;
+$ngbiz-primary-color: #76b82a;
+$ngbiz-accent-color:  #37474f;
+$ngbiz-warning-color: #ff9800;
+$ngbiz-danger-color:  #f44336;
+$ngbiz-info-color:    #2196f3;
 
-$ngx-nav-item-height: 36px;
-$filter-input-border-radius: 4px;
+$ngbiz-nav-item-height: 36px;
+$ngbiz-filter-input-border-radius: 4px;
 
-$body-bg-color:         #a3d8e5;
+$ngbiz-body-bg-color:         #a3d8e5;
   // Worksheet
-$worksheet-title-color:   #37474f;
+$ngbiz-worksheet-title-color:   #37474f;
+
+$ngbiz-table-cell-border-color: #e0e0e0;

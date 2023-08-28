@@ -11,5 +11,9 @@ export class NavListComponent {
   sidenav!: MatSidenav;
   @Input()
   items: NavItemModel[] = [];
-
+  onItemClick() {
+    if (this.sidenav?.mode === 'over') {
+      this.sidenav.close();
+    }
+  }
 }

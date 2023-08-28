@@ -4,7 +4,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   templateUrl: './process-mask.component.html',
   styleUrls: ['./process-mask.component.scss'],
-  host: { class: 'text-center' },
 })
 export class ProcessMaskComponent {
   @Input() message: string = '';

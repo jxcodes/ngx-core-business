@@ -1,0 +1,10 @@
+:host {
+  display: flex;
+  padding: 0.25rem 16px;
+  min-height: 44px;
+  align-items:center;
+}
+app-text-filter {
+  width: 100%;
+  max-width: 320px;
+}

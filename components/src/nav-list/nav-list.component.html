@@ -1,19 +1,19 @@
 <mat-nav-list>
   <ng-container *ngFor="let item of items">
-    <a *ngIf="!item.children?.length" mat-list-item [routerLink]="item.route" routerLinkActive="active">
+    <a *ngIf="!item.children?.length" mat-list-item [routerLink]="item.route" routerLinkActive="active" (click)="onItemClick()">
       <div class="menu-item">
         <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
       </div>
     </a>
     <div *ngIf="item.children?.length">
-      <mat-expansion-panel class="mat-elevation-z0 ui-mat-expansion-panel--body-no-padding">
+      <mat-expansion-panel class="mat-elevation-z0">
         <mat-expansion-panel-header>
           <mat-panel-title>
             <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <ng-container *ngFor="let child of item.children">
-          <a mat-list-item [routerLink]="child.route" routerLinkActive="active">
+          <a mat-list-item [routerLink]="child.route" routerLinkActive="active" (click)="onItemClick()">
             <div class="menu-item l1">
               <mat-icon>{{child.icon}}</mat-icon><span>{{child.text}}</span>
             </div>

@@ -1,0 +1,13 @@
+/**
+ * mat-dialog-actions customization
+ * name: lite
+ * component: mat-dialog-actions
+ */
+.ngbiz-custom-material__mat-dialog-actions--editor-actions {
+  &.mat-mdc-dialog-actions {
+    padding-top: 20px;
+    button:last-child {
+      margin-left: 16px;
+    }
+  }
+}

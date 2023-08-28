@@ -1,0 +1,4 @@
+<ng-content select="[start]"></ng-content>
+<ngbiz-text-filter (valueChange)="setSearchFilterValue($event)" [debounceTime]="searchDebounceTime"></ngbiz-text-filter>
+<ng-content select="[afterSearchBox]"></ng-content>
+<ng-content select="[end]"></ng-content>

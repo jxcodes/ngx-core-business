@@ -1,8 +1,20 @@
 :host {
   width: 100%;
 }
+.menu-button {
+  margin-right: 4px;
+  min-width: unset;
+  border-radius: 0;
+  height: 100%;
+  mat-icon {
+    font-size: 26px;
+    height: 26px;
+    width: 26px;
+    margin: 0;
+  }
+}
 mat-toolbar {
-  height: 32px;
+  height: 100%;
   font-size: 13px;
   padding: 0 7px;
 }

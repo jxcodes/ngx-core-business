@@ -1,17 +1,17 @@
 @import "../vars";
 // Foreground colors
 .fg-primary {
-  color: $primary-color !important;
+  color: $ngbiz-primary-color !important;
 }
 .fg-accent {
-  color: $accent-color !important;
+  color: $ngbiz-accent-color !important;
 }
 // Background colors
 .bg-body {
-  background: $body-bg-color;
+  background: $ngbiz-body-bg-color;
 }
 .bg-primary {
-  background-color: $primary-color !important;
+  background-color: $ngbiz-primary-color !important;
 }
 .fg-disabled {
   color: #eeeeee;

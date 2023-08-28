@@ -19,7 +19,7 @@
   width: 100%;
   max-width: 960px;
   margin: 0 auto;
-  background-color: $primary-color;
+  background-color: $ngbiz-primary-color;
   a,
   button {
     color: #fff;
@@ -39,7 +39,7 @@
     font-weight: 400;
     margin-bottom: 16px;
     text-transform: uppercase;
-    color: $worksheet-title-color;
+    color: $ngbiz-worksheet-title-color;
     line-height: 1;
   }
   .group {
@@ -50,7 +50,7 @@
   }
   .group-title {
     font-size: 15px;
-    color: $worksheet-title-color;
+    color: $ngbiz-worksheet-title-color;
     margin-bottom: 8px;
     letter-spacing: 1px;
   }

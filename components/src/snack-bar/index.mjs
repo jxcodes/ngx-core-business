@@ -1,0 +1,3 @@
+export * from './snack-bar.module';
+export * from './snack-bar.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxjQUFjLG9CQUFvQixDQUFDO0FBQ25DLGNBQWMsdUJBQXVCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL3NuYWNrLWJhci5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9zbmFjay1iYXIuY29tcG9uZW50JztcbiJdfQ==

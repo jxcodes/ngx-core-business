@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'ngbiz-app-header',
@@ -13,5 +13,5 @@ export class AppHeaderComponent {
   @Input() userName: string = '';
   @Input() roleName: string = '';
   @Input() logoutText: string = 'Close session';
-
+  @Input() @HostBinding('style.height.px') height: number = 32;
 }
