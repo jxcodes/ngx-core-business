@@ -16,10 +16,10 @@ mat-icon {
 }
 a.active {
   //background: rgba(0, 0, 0, 0.08);
-  border-left: 4px solid $ngbiz-primary-color;
+  border-left: 4px solid var(--ngbiz-primary-color, $ngbiz-primary-color);
 
   mat-icon {
-    color: $ngbiz-primary-color;
+    color: var(--ngbiz-primary-color, $ngbiz-primary-color);
   }
   .menu-item {
     margin-left: -4px;

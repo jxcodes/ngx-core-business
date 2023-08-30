@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { HttpActivityService } from './http-activity.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { HttpActivityService } from './http-activity.service';
   styleUrls: ['./http-activity-bar.component.scss'],
 })
 export class HttpActivityBarComponent implements OnInit {
+  @HostBinding('style.z-index')
+  @Input() zIndex: number = 1;
   active: boolean = false;
   constructor(private service: HttpActivityService) { }
 

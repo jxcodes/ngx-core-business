@@ -19,7 +19,7 @@ import { EMAIL_PATTERN, FormBuilderHelper, FormField, FormFieldOptions, URL_PATT
 @Directive()
 export class FormDialogComponent<T> implements OnInit {
   @HostBinding('class')
-  hostCls: string = 'form-dialog';
+  hostCls: string = 'ngbiz-custom-material__mat-dialog--form';
   mode!: 'add' | 'edit';
   //
   data: any = {};

@@ -1,10 +1,11 @@
 @import "../../../scss/vars";
-:host {
-  position: absolute;
-  background-color: $ngbiz-primary-color;
-  border-radius: 0 0 50% 50%;
-  display: inline-block;
-  padding: 2px 4px 0px;
+mat-icon {
+  background-color: var(--ngbiz-primary-color, $ngbiz-primary-color);
   color: white;
-  top: -24px;
+  border-radius: 50%;
+  margin: 0 8px 0 0;
+  padding: 4px;
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
 }

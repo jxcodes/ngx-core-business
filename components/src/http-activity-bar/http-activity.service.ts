@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
 export class HttpActivityService {
   observer = new Subject<boolean>();
   public statusChange = this.observer.asObservable();
-  constructor() {}
   showIndicator() {
     this.observer.next(true);
   }

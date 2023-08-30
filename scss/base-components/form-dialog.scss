@@ -1,0 +1,22 @@
+.form-dialog {
+  position: relative;
+  display: block;
+  width: 100%;
+  .mat-mdc-dialog-title {
+    padding: 0 32px 8px;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  mat-dialog-content {
+    &.mdc-dialog__content {
+      padding: 16px 32px;
+    }
+  }
+  mat-dialog-actions {
+    padding: 16px 32px;
+    button:last-child {
+      margin-left: 16px;
+    }
+  }
+}

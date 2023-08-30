@@ -1,0 +1,32 @@
+/**
+ * mat-dialog customization
+ * name: form
+ * component: mat-dialog
+ */
+@import "../../vars";
+
+.ngbiz-custom-material__mat-dialog--form {
+  position: relative;
+  display: block;
+  width: 100%;
+  .mat-mdc-dialog-title {
+    padding: 0 32px 8px;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  textarea {
+    outline-color: $ngbiz-primary-color;
+  }
+  mat-dialog-content {
+    &.mdc-dialog__content {
+      padding: 16px 32px;
+    }
+  }
+  mat-dialog-actions {
+    padding: 16px 32px;
+    button:last-child {
+      margin-left: 16px;
+    }
+  }
+}

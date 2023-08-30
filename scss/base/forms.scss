@@ -1,23 +1,6 @@
 @import "../vars";
-.form-dialog {
-  position: relative;
-  display: block;
-  width: 100%;
-  .mat-dialog-title {
-    padding-top: 12px;
-  }
-  mat-form-field {
-    width: 100%;
-  }
-}
-mat-form-field {
-  width: 100%;
-}
 .select-ubigeo {
   border: 1px solid #bdbdbd;
   padding: 2px 8px;
   border-radius: $ngbiz-filter-input-border-radius;
-}
-textarea {
-  outline-color: $ngbiz-primary-color;
 }

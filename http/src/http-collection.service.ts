@@ -9,10 +9,10 @@ import { QuerySorter } from './query-sorter';
   providedIn: 'root',
 })
 export class HttpCollectionService {
-  private pageParam = 'page';
-  private limitParam = 'limit';
-  private queryParam = 'query';
-  private sorterParam = 'sorter';
+  private pageParam   = 'page';
+  private limitParam  = 'limit';
+  private queryParam  = 'query';
+  private sortParam   = 'sort';
   private filterParam = 'filter';
   private fieldsParam = '$fields';
   constructor(private http: HttpClient) { }
@@ -39,7 +39,7 @@ export class HttpCollectionService {
     }
     if (options.sorters) {
       queryParams.push(
-        `${me.sorterParam}=${me.encodeSorters(options.sorters)}`
+        `${me.sortParam}=${me.encodeSorters(options.sorters)}`
       );
     }
     if (options.filters) {

@@ -6,7 +6,6 @@ import { CollectionFilter } from 'ngx-kit-business/types';
   selector: 'ngbiz-list-toolbar',
   templateUrl: './list-toolbar.component.html',
   styleUrls: ['./list-toolbar.component.scss'],
-  //host: { class: 'flex-column flex-md-row align-items-md-center' },
 })
 export class ListToolbarComponent extends FiltersContainerComponent {
   @Input() searchDebounceTime = 500;

@@ -1,0 +1,27 @@
+@mixin styles() {
+  .v-box {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    .fill-space {
+      flex: 1 1 auto !important;
+      overflow: auto !important;
+    }
+  }
+  .container-center {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    > div {
+      margin: auto;
+    }
+  }
+
+  .container-va-middle > * {
+    vertical-align: middle;
+  }
+}

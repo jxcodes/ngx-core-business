@@ -1,0 +1,5 @@
+@use "layouts" as layouts;
+
+@mixin core() {
+  @include layouts.styles();
+}
