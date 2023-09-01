@@ -16,6 +16,7 @@ export * from './progress-view';
 export * from './snack-bar';
 export * from './text-filter';
 export * from './view-breadcrumb';
+export * from './view-title';
 
 export * from './services';
 

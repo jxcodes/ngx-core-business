@@ -1,25 +1,27 @@
 <mat-nav-list>
   <ng-container *ngFor="let item of items">
-    <a *ngIf="!item.children?.length" mat-list-item [routerLink]="item.route" routerLinkActive="active" (click)="onItemClick()">
-      <div class="menu-item">
-        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
-      </div>
-    </a>
-    <div *ngIf="item.children?.length">
-      <mat-expansion-panel class="mat-elevation-z0">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <ng-container *ngFor="let child of item.children">
-          <a mat-list-item [routerLink]="child.route" routerLinkActive="active" (click)="onItemClick()">
-            <div class="menu-item l1">
-              <mat-icon>{{child.icon}}</mat-icon><span>{{child.text}}</span>
-            </div>
-          </a>
-        </ng-container>
-      </mat-expansion-panel>
-    </div>
+    <ng-container *ngTemplateOutlet="navItem;
+    context: {item:item, level: 1}">
+    </ng-container>
   </ng-container>
 </mat-nav-list>
+<ng-template #navItem let-item="item" let-level="level">
+  <a *ngIf="!item.children?.length" mat-list-item [routerLink]="item.route" routerLinkActive="active"
+    (click)="onItemClick()">
+    <div [class]="'menu-item l'+level">
+      <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
+    </div>
+  </a>
+  <mat-expansion-panel *ngIf="item.children?.length" class="mat-elevation-z0">
+    <mat-expansion-panel-header [class]="'l'+level">
+      <mat-panel-title>
+        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container *ngFor="let child of item.children">
+      <ng-container *ngTemplateOutlet="navItem;
+        context: {item:child, level: level+1}">
+      </ng-container>
+    </ng-container>
+  </mat-expansion-panel>
+</ng-template>

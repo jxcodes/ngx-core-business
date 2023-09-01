@@ -1,4 +1,13 @@
 @import "../../../scss/vars";
+$levelSpacing: 22px;
+$selectionBorderWidth: 4px;
+$itemHorizontalPadding: 16px;
+$itemFontSize: 14px;
+a {
+  cursor: pointer;
+  padding: 0 $itemHorizontalPadding;
+  font-size: $itemFontSize;
+}
 mat-nav-list {
   padding-top: 0;
   width: 100%;
@@ -13,18 +22,25 @@ mat-icon {
   font-size: 18px;
   margin-right: 4px;
   line-height: 18px !important;
+  color: #616161;
 }
 a.active {
-  //background: rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--ngbiz-primary-color, $ngbiz-primary-color);
+  border-left: $selectionBorderWidth solid
+    var(--ngbiz-primary-color, $ngbiz-primary-color);
 
   mat-icon {
     color: var(--ngbiz-primary-color, $ngbiz-primary-color);
   }
   .menu-item {
-    margin-left: -4px;
-    &.l1 {
-      margin-left: 12px;
+    margin-left: -$selectionBorderWidth;
+    &.l2 {
+      margin-left: $levelSpacing - $selectionBorderWidth;
+    }
+    &.l3 {
+      margin-left: $levelSpacing * 2 - $selectionBorderWidth;
+    }
+    &.l4 {
+      margin-left: $levelSpacing * 3 - $selectionBorderWidth;
     }
   }
 }
@@ -35,16 +51,32 @@ a.active {
   > * {
     line-height: 20px;
   }
-  &.l1 {
-    margin-left: 16px;
+  &.l2 {
+    margin-left: $levelSpacing;
+  }
+  &.l3 {
+    margin-left: $levelSpacing * 2;
+  }
+  &.l4 {
+    margin-left: $levelSpacing * 3;
   }
 }
 mat-expansion-panel {
   border-radius: 0;
 }
 mat-expansion-panel-header {
-  padding: 0 16px;
+  padding: 0 $itemHorizontalPadding;
   height: $ngbiz-nav-item-height !important;
+  font-size: $itemFontSize;
+  &.l2 {
+    padding-left: $itemHorizontalPadding + $levelSpacing;
+  }
+  &.l3 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 2;
+  }
+  &.l4 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 3;
+  }
   &.mat-expanded {
     height: $ngbiz-nav-item-height;
   }

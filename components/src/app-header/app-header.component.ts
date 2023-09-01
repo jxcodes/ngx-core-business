@@ -6,12 +6,11 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
   styleUrls: ['./app-header.component.scss'],
 })
 export class AppHeaderComponent {
-
   @Output() menuButtonClick = new EventEmitter();
   @Output() logoutButtonClick = new EventEmitter();
   @Input() appName: string = '';
   @Input() userName: string = '';
   @Input() roleName: string = '';
-  @Input() logoutText: string = 'Close session';
+  @Input() logoutText: string = 'Logout';
   @Input() @HostBinding('style.height.px') height: number = 32;
 }
