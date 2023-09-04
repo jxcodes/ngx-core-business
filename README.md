@@ -1,24 +1,38 @@
-# NgxKitBusiness
+# Ngx Core Business Library
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+## Overview
 
-## Code scaffolding
+The Ngx Core Business Library is a comprehensive solution designed to streamline Angular application development. It offers a range of essential tools, services, pipes, components, and customized Material components to help you create Angular applications more efficiently, reduce code complexity, and maintain high code quality.
 
-Run `ng generate component component-name --project ngx-kit-business` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-kit-business`.
-> Note: Don't forget to add `--project ngx-kit-business` or else it will be added to the default project in your `angular.json` file. 
+## Key Features
 
-## Build
+The Ngx Core Business Library aims to provide the following key features for your Angular projects:
 
-Run `ng build ngx-kit-business` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Business Entities CRUD Operations:** Simplify the management of business entities with easy-to-use CRUD (Create, Read, Update, Delete) operations.
 
-## Publishing
+2. **Optimized Components for Enterprise Applications:** Access a collection of pre-built, optimized components tailored for enterprise-level applications, saving you development time and effort.
 
-After building your library with `ng build ngx-kit-business`, go to the dist folder `cd dist/ngx-kit-business` and run `npm publish`.
+3. **Common Pipes, Directives, and Services:** Benefit from a suite of common pipes, directives, and services that are commonly required in enterprise applications, ensuring consistency and reliability in your codebase.
 
-## Running unit tests
+4. **Standardized Layouts:** Achieve a consistent and professional look for your enterprise applications by utilizing standardized layouts included in the library.
 
-Run `ng test ngx-kit-business` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting Started
 
-## Further help
+To get started with the Ngx Core Business Library, follow these steps:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. **Installation:** Install the library in your Angular project using your preferred package manager (e.g., npm or yarn).
+
+```bash
+npm install ngx-core-business
+```
+2. **Import and Configure:** Import and configure the library in your Angular application as needed.
+
+3. **Explore Documentation:** Detailed documentation, examples, and usage guidelines will be provided soon to help you make the most of the Ngx Core Business Library.
+
+Stay tuned for updates and more extensive documentation to make your Angular development experience smoother and more productive.
+
+## Documentation
+For in-depth information, examples, and usage guidelines, please refer to the official documentation, which will be available soon.
+
+**Note:** This README is a living document, and it will continuously evolve with the addition of more information and comprehensive documentation as it becomes available. We sincerely appreciate your selection of the Ngx Core Business Library for your Angular development requirements.
+
