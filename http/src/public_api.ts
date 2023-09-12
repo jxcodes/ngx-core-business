@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-kit-business
+ * Public API Surface of ngx-core-business
  */
 export * from './base-rest-service';
 export * from './http-collection.service';

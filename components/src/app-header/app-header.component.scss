@@ -15,10 +15,15 @@
     margin: 0;
   }
 }
+.photo-url {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
 mat-toolbar {
   height: 100%;
   font-size: 13px;
-  padding: 0 7px;
+  padding: 0;
 }
 .fill {
   flex: 1;
@@ -56,4 +61,7 @@ mat-toolbar {
   border-left: 1px solid #fff;
   width: 1px;
   height: 22px;
+}
+.abc {
+  background-color: red;
 }

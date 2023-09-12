@@ -5,9 +5,43 @@ $itemHorizontalPadding: 16px;
 $itemFontSize: 14px;
 a {
   cursor: pointer;
-  padding: 0 $itemHorizontalPadding;
   font-size: $itemFontSize;
+  &.l1 {
+    padding-left: $itemHorizontalPadding;
+  }
+  &.l2 {
+    padding-left: $itemHorizontalPadding + $levelSpacing;
+  }
+  &.l3 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 2;
+  }
+  &.l4 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 3;
+  }
 }
+a.active {
+  border-left: $selectionBorderWidth solid
+    var(--ngbiz-primary-color, $ngbiz-primary-color);
+
+  mat-icon {
+    color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+  }
+  &.l1 {
+    padding-left: $itemHorizontalPadding - $selectionBorderWidth;
+  }
+  &.l2 {
+    padding-left: $itemHorizontalPadding + $levelSpacing - $selectionBorderWidth;
+  }
+  &.l3 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 2 -
+      $selectionBorderWidth;
+  }
+  &.l4 {
+    padding-left: $itemHorizontalPadding + $levelSpacing * 3 -
+      $selectionBorderWidth;
+  }
+}
+
 mat-nav-list {
   padding-top: 0;
   width: 100%;
@@ -24,41 +58,12 @@ mat-icon {
   line-height: 18px !important;
   color: #616161;
 }
-a.active {
-  border-left: $selectionBorderWidth solid
-    var(--ngbiz-primary-color, $ngbiz-primary-color);
-
-  mat-icon {
-    color: var(--ngbiz-primary-color, $ngbiz-primary-color);
-  }
-  .menu-item {
-    margin-left: -$selectionBorderWidth;
-    &.l2 {
-      margin-left: $levelSpacing - $selectionBorderWidth;
-    }
-    &.l3 {
-      margin-left: $levelSpacing * 2 - $selectionBorderWidth;
-    }
-    &.l4 {
-      margin-left: $levelSpacing * 3 - $selectionBorderWidth;
-    }
-  }
-}
 
 .menu-item {
   display: flex;
   align-items: center;
   > * {
     line-height: 20px;
-  }
-  &.l2 {
-    margin-left: $levelSpacing;
-  }
-  &.l3 {
-    margin-left: $levelSpacing * 2;
-  }
-  &.l4 {
-    margin-left: $levelSpacing * 3;
   }
 }
 mat-expansion-panel {

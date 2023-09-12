@@ -26,7 +26,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { HttpCollectionService, CollectionQueryParams, QueryFilter, CollectionResponse } from 'ngx-kit-business/http';
+import { HttpCollectionService, CollectionQueryParams, QueryFilter, CollectionResponse } from 'ngx-core-business/http';
 import { DataErrorViewComponent } from './data-error-view/data-error-view.component';
 
 import { of, Subscription, Subject } from 'rxjs';

@@ -1,8 +1,9 @@
 /*
- * Public API Surface of ngx-kit-business
+ * Public API Surface of ngx-core-business
  */
 
 export * from './app-header';
+export * from './avatar';
 export * from './data-error-view';
 export * from './dialog';
 export * from './edition-pin';

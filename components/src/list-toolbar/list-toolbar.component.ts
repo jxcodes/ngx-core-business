@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FiltersContainerComponent } from '../filters-container.component';
-import { CollectionFilter } from 'ngx-kit-business/types';
+import { CollectionFilter } from 'ngx-core-business/types';
 
 @Component({
   selector: 'ngbiz-list-toolbar',

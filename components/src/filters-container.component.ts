@@ -1,5 +1,5 @@
 import { Output, EventEmitter, Directive } from '@angular/core';
-import { CollectionFilter, ComparisonOperator, } from 'ngx-kit-business/types';
+import { CollectionFilter, ComparisonOperator, } from 'ngx-core-business/types';
 
 @Directive()
 export class FiltersContainerComponent {
