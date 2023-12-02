@@ -6,6 +6,7 @@ import { Component, HostBinding, Input } from '@angular/core';
 })
 export class AvatarComponent {
   @Input() src: string | undefined;
+  @Input() name: string | undefined;
   @Input() size: number = 32;
   @HostBinding('style.height.px') get height() { return this.size; }
   @HostBinding('style.width.px') get width() { return this.size; }
@@ -14,5 +15,16 @@ export class AvatarComponent {
       return 'image';
     }
     return 'text';
+  }
+  getInitials() {
+    if (this.name) {
+      const names = this.name.split(' ');
+      let initials = '';
+      names.forEach((name) => {
+        initials += name[0];
+      });
+      return initials;
+    }
+    return '';
   }
 }

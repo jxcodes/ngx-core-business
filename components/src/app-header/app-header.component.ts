@@ -10,6 +10,7 @@ export class AppHeaderComponent {
   @Output() menuButtonClick = new EventEmitter();
   @Output() logoutButtonClick = new EventEmitter();
   @Input() appName: string = '';
+  @Input() showDefaultUserInfo: boolean = true;
   @Input() user: User | null = null;
   @Input() logoutText: string = 'Logout';
   @Input() @HostBinding('style.height.px') height: number = 36;

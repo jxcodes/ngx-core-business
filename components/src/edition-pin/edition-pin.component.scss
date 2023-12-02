@@ -1,4 +1,8 @@
 @import "../../../scss/vars";
+:host {
+  display: inline-block;
+  margin-right: 8px;
+}
 mat-icon {
   box-sizing: border-box;
   background-color: var(--ngbiz-primary-color, $ngbiz-primary-color);

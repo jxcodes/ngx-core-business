@@ -15,6 +15,19 @@
     margin: 0;
   }
 }
+.ngbiz-user-pin {
+  border-radius: 16px;
+  & > * {
+    vertical-align: middle;
+  }
+}
+.ngbiz-username{
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
 .photo-url {
   width: 24px;
   height: 24px;
@@ -24,9 +37,6 @@ mat-toolbar {
   height: 100%;
   font-size: 13px;
   padding: 0;
-}
-.fill {
-  flex: 1;
 }
 
 .block-user-idenfication {

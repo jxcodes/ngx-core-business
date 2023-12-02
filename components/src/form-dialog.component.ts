@@ -160,7 +160,12 @@ export class FormDialogComponent<T> implements OnInit {
     if (me.buildFormModelOnInit) {
       me.defineFormModel();
     }
+    me.loadDatasets();
   }
+  /**
+   * Hook for data loading, it is called once on ngOnInit
+   */
+  loadDatasets() { };
 
   isValid() {
     return this.formModel.valid;

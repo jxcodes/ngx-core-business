@@ -2,9 +2,4 @@
   display: flex !important;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
-  .fill-space {
-    flex: 1 1 auto !important;
-    overflow: auto !important;
-  }
 }

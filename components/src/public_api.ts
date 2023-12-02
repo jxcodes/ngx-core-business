@@ -24,5 +24,7 @@ export * from './services';
 export * from './filters-container.component';
 export * from './form-builder-helper';
 export * from './form-dialog.component';
+export * from './form.component';
+export * from './model-view.component';
 export * from './table-view.component';
 
