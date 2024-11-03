@@ -7,16 +7,17 @@ export * from './avatar';
 export * from './data-error-view';
 export * from './dialog';
 export * from './edition-pin';
+export * from './grid';
 export * from './http-activity-bar';
 export * from './list-toolbar';
 export * from './nav-list';
 export * from './process-button';
-export * from './view-content-wrapper';
 export * from './process-mask';
 export * from './progress-view';
 export * from './snack-bar';
 export * from './text-filter';
 export * from './view-breadcrumb';
+export * from './view-content-wrapper';
 export * from './view-title';
 
 export * from './services';

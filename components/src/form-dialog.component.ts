@@ -1,7 +1,6 @@
 import {
   UntypedFormGroup,
   AbstractControl,
-  Validators,
   UntypedFormBuilder,
 } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -9,7 +8,7 @@ import { OnInit, Directive, Injector, HostBinding } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DialogService } from './services/dialog.service';
 import { NotificationsService } from './services/notifications.service';
-import { EMAIL_PATTERN, FormBuilderHelper, FormField, FormFieldOptions, URL_PATTERN } from './form-builder-helper';
+import { FormBuilderHelper, FormField, FormFieldDefinition, FormFields } from './form-builder-helper';
 
 /**
  * Form Component
@@ -39,7 +38,7 @@ export class FormDialogComponent<T> implements OnInit {
    * FormGrup asignado al formulario
    */
   formModel!: UntypedFormGroup;
-  protected formFields: { [key: string]: FormFieldOptions } = {};
+  protected formFields: FormFields = {};
   /**
    * Si es true se usará el metodo getRawValue() obtener los valores del formulari
    * caso contrario solo se usará la propiedad value.
@@ -197,7 +196,7 @@ export class FormDialogComponent<T> implements OnInit {
     return this.formModel.get(name);
   }
 
-  getFieldProperty(fieldName: string, prop: keyof FormFieldOptions) {
+  getFieldProperty(fieldName: string, prop: keyof FormFieldDefinition) {
     return this.formFields[fieldName] ? this.formFields[fieldName][prop] : null;
   }
 
@@ -266,7 +265,7 @@ export class FormDialogComponent<T> implements OnInit {
       } else {
         fieldPropsObj = fieldValue;
       }
-      formGroupObjet[field.name] = [fieldPropsObj, me.getValidators(field)];
+      formGroupObjet[field.name] = [fieldPropsObj, me.fbHelper.getValidators(field)];
     });
     if (me.formBuilder) me.formModel = me.formBuilder.group(formGroupObjet);
   }
@@ -277,7 +276,7 @@ export class FormDialogComponent<T> implements OnInit {
     for (const fieldName of Object.keys(me.formFields)) {
       fields[fieldName] = me.transformDefinedField(fieldName, me.formFields[fieldName]);
     }
-    me.formModel = me.fbHelper.buildFormModel(
+    me.formModel = me.fbHelper.buildFormGroup(
       fields,
       me.getValuesForFormModel(me.model),
     );
@@ -288,7 +287,7 @@ export class FormDialogComponent<T> implements OnInit {
  * @param field
  * @returns
  */
-  protected transformDefinedField(_fieldName: string, field: FormFieldOptions) {
+  protected transformDefinedField(_fieldName: string, field: FormFieldDefinition) {
     return field;
   }
 
@@ -312,45 +311,6 @@ export class FormDialogComponent<T> implements OnInit {
    */
   protected preProcessDefinedField(field: FormField) {
     return field;
-  }
-
-  /**
-   * Retronar un arreglo de validadores
-   * @param field
-   */
-  private getValidators(field: FormField) {
-    let out = [];
-    if (field.required) {
-      out.push(Validators.required);
-    }
-    if (field.min) {
-      out.push(Validators.min(field.min));
-    }
-    if (field.max) {
-      out.push(Validators.max(field.max));
-    }
-    if (field.minLength) {
-      out.push(Validators.minLength(field.minLength));
-    }
-    if (field.maxLength) {
-      out.push(Validators.maxLength(field.maxLength));
-    }
-    if (field.email) {
-      out.push(Validators.email);
-    }
-    if (field.emailPattern) {
-      out.push(Validators.pattern(EMAIL_PATTERN));
-    }
-    if (field.urlPattern) {
-      out.push(Validators.pattern(URL_PATTERN));
-    }
-    if (field.pattern) {
-      out.push(Validators.pattern(field.pattern));
-    }
-    if (field.customValidation) {
-      out.push(field.customValidation);
-    }
-    return out;
   }
 
   setFieldDisabled(fieldName: string, disabled: boolean) {

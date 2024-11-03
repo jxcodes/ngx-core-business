@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 export const EMAIL_PATTERN =
   /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 export const URL_PATTERN =
   /(((^https?)|(^ftp)):\/\/((([\-\w]+\.)+\w{2,3}(\/[%\-\w]+(\.\w{2,})?)*(([\w\-\.\?\\\/+@&#;`~=%!]*)(\.\w{2,})?)*)|(localhost|LOCALHOST))\/?)/i;
-
-export interface FormFieldOptions {
+export type FieldGroupType = 'object' | 'array';
+export interface FieldValidations {
+  //groupType?: FieldGroupType;
+  groupType?: string;
   required?: boolean;
   disabled?: boolean;
   min?: number;
@@ -16,55 +19,61 @@ export interface FormFieldOptions {
   pattern?: RegExp | string;
   emailPattern?: boolean | RegExp;
   urlPattern?: boolean | RegExp;
-  customValidation?: Function;
+  customValidation?: () => boolean;
   defaultValue?: any;
   valueType?: 'array' | 'object' | 'string' | 'number' | 'boolean';
   arrayValueType?: 'string' | 'number';
 }
-export interface FormField extends FormFieldOptions {
+
+// This defines the structure of the form fields
+export type FormFieldDefinition = FieldValidations | {
+  [key: string]: FieldValidations | string;
+  //groupType: FieldGroupType;
+  groupType: string;
+};
+export interface FormField extends FieldValidations {
   name: string;
 }
+export type FormFields = {
+  [key: string]: FormFieldDefinition;
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class FormBuilderHelper {
-  constructor(private formBuilder: UntypedFormBuilder) { }
-  buildFormModel(fields: { [key: string]: FormFieldOptions }, values: { [key: string]: any }) {
+
+  constructor(private formBuilder: FormBuilder) { }
+
+  buildFormGroup(fields: FormFields, values: { [key: string]: any } = {}): FormGroup {
     const me = this;
-    let formGroupObjet: any = {},
-      field: FormFieldOptions,
-      fieldValue,
-      fieldPropsObj;
-    values = values ? values : {};
+    const formGroupObjet: any = {};
+    let formFieldDefinition: FormFieldDefinition;
+    let fieldValue;
+    values = values || {};
     for (const fieldName of Object.keys(fields)) {
-      field = fields[fieldName];
+      formFieldDefinition = fields[fieldName];
       fieldValue = values[fieldName];
-      // If the valueType is array and the value is a string, we need to convert it to an array
-      if (field.valueType === 'array' && typeof fieldValue === 'string') {
-        fieldValue = fieldValue.split(',').map(value => {
-          if (field.arrayValueType === 'number') {
-            return Number(value);
-          }
-          return value.trim();
-        });
+      if (formFieldDefinition.groupType === 'object') {
+        formGroupObjet[fieldName] = me.buildFormGroup(formFieldDefinition as FormFields, fieldValue);
+        continue;
       }
-      fieldValue = fieldValue !== undefined ? fieldValue : field.defaultValue;
-      // disabled Field
-      if (field.disabled) {
-        fieldPropsObj = { value: fieldValue, disabled: true };
-      } else {
-        fieldPropsObj = fieldValue;
+      if (formFieldDefinition.groupType === 'array') {
+        formGroupObjet[fieldName] = me.buildFormArray(formFieldDefinition as FormFields, fieldValue);
+        continue;
       }
-      formGroupObjet[fieldName] = [fieldPropsObj, me.getValidators(field)];
+      formGroupObjet[fieldName] = me.getFormGroupFieldDefinition(formFieldDefinition, fieldValue);
     }
     return this.formBuilder.group(formGroupObjet);
   }
+
   /**
    * Retronar un arreglo de validadores
+   *
    * @param field
    */
-  getValidators(field: FormFieldOptions) {
-    let out = [];
+  getValidators(field: FieldValidations): any[] {
+    const out: any[] = [];
     if (field.required) {
       out.push(Validators.required);
     }
@@ -97,4 +106,37 @@ export class FormBuilderHelper {
     }
     return out;
   }
+
+  private buildFormArray(fields: FormFields, rows: { [key: string]: any }[]): FormArray {
+    const me = this;
+    const formArray: FormGroup[] = [];
+    rows = rows || [];
+    rows.forEach((item) => {
+      formArray.push(me.buildFormGroup(fields, item));
+    });
+    return this.formBuilder.array(formArray);
+  }
+
+  private getFormGroupFieldDefinition(formFieldDefinition: FormFieldDefinition, fieldValue: any): [field: any, validators: any[]] {
+    const me = this;
+    let fieldPropsObj;
+    // If the valueType is array and the value is a string, we need to convert it to an array
+    if (formFieldDefinition.valueType === 'array' && typeof fieldValue === 'string') {
+      fieldValue = fieldValue.split(',').map((value) => {
+        if (formFieldDefinition.arrayValueType === 'number') {
+          return Number(value);
+        }
+        return value.trim();
+      });
+    }
+    fieldValue = fieldValue !== undefined ? fieldValue : formFieldDefinition.defaultValue;
+    // disabled Field
+    if (formFieldDefinition.disabled) {
+      fieldPropsObj = { value: fieldValue, disabled: true };
+    } else {
+      fieldPropsObj = fieldValue;
+    }
+    return [fieldPropsObj, me.getValidators(formFieldDefinition)];
+  }
+
 }

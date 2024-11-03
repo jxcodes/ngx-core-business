@@ -10,8 +10,22 @@
   &.mat-mdc-table {
     border-bottom: 1px solid $ngbiz-table-cell-border-color;
     tr.mat-mdc-row {
-      height: unset;
-      min-height: 32px;
+      height: 32px;
+    }
+    &.small {
+      tr.mat-mdc-row {
+        height: 24px;
+      }
+    }
+    &.medium {
+      tr.mat-mdc-row {
+        height: 32px;
+      }
+    }
+    &.large {
+      tr.mat-mdc-row {
+        height: 40px;
+      }
     }
   }
   .mat-column-_rownumber,
@@ -75,6 +89,9 @@
         justify-content: space-between;
         min-height: 24px;
       }
+    }
+    &.row-actions-cell {
+      padding: 0;
     }
     .common-cell-padding {
       padding: 4px 6px;

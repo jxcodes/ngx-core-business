@@ -1,7 +1,7 @@
 import { Directive, Injector, Input } from '@angular/core';
 import { ModelViewComponent } from './model-view.component';
 import { AbstractControl, UntypedFormGroup } from '@angular/forms';
-import { FormBuilderHelper, FormFieldOptions } from './form-builder-helper';
+import { FieldValidations, FormBuilderHelper, FormFields } from './form-builder-helper';
 import { Observable } from 'rxjs';
 
 @Directive()
@@ -9,7 +9,7 @@ export abstract class FormComponent<T> extends ModelViewComponent<T> {
 
   // Propiedades de formulario
   formModel!: UntypedFormGroup;
-  formFields: { [key: string]: FormFieldOptions } = {};
+  formFields: FormFields = {};
   override model: T | any;
   modelIdProperty = 'id';
   override autoload = false;
@@ -123,7 +123,7 @@ export abstract class FormComponent<T> extends ModelViewComponent<T> {
     return this.getFormControl(fieldName)?.hasError(errorType);
   }
 
-  getFieldProperty(fieldName: string, prop: keyof FormFieldOptions) {
+  getFieldProperty(fieldName: string, prop: keyof FieldValidations) {
     return this.formFields[fieldName] ? this.formFields[fieldName][prop] : null;
   }
 
@@ -137,7 +137,7 @@ export abstract class FormComponent<T> extends ModelViewComponent<T> {
     for (const fieldName of Object.keys(me.formFields)) {
       fields[fieldName] = me.transformDefinedField(fieldName, me.formFields[fieldName]);
     }
-    me.formModel = me.fbHelper.buildFormModel(
+    me.formModel = me.fbHelper.buildFormGroup(
       fields,
       me.getValuesForFormModel(me.model),
     );
@@ -148,7 +148,7 @@ export abstract class FormComponent<T> extends ModelViewComponent<T> {
    * @param field
    * @returns
    */
-  protected transformDefinedField(fieldName: string, field: FormFieldOptions) {
+  protected transformDefinedField(fieldName: string, field: FieldValidations) {
     return field;
   }
 
