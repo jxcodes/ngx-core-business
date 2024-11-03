@@ -6,7 +6,7 @@ import { AvatarComponent } from './avatar.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<AvatarComponent> = {
-  title: 'Forms/EditionPin',
+  //title: 'Forms/EditionPin',
   tags: ['autodocs'],
   component: AvatarComponent,
   decorators: [
@@ -20,21 +20,8 @@ export default meta;
 type Story = StoryObj<AvatarComponent>;
 
 // Stories
-export const Add: Story = {
+export const UserName: Story = {
   args: {
-    icon: 'add',
+    name: 'John Doe',
   },
 };
-
-export const Edit: Story = {
-  args: {
-    icon: 'edit',
-  },
-};
-
-export const Delete: Story = {
-  args: {
-    icon: 'delete',
-  },
-};
-
