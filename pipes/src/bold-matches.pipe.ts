@@ -1,6 +1,9 @@
 import { PipeTransform, Pipe } from '@angular/core';
 
-@Pipe({ name: 'boldMatches' })
+@Pipe({
+    name: 'boldMatches',
+    standalone: false
+})
 export class BoldMatchesPipe implements PipeTransform {
   transform(value: string, search: string): string {
     if (!search) {

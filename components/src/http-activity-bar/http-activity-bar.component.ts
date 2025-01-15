@@ -2,9 +2,10 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { HttpActivityService } from './http-activity.service';
 
 @Component({
-  selector: 'ngbiz-http-activity-bar',
-  templateUrl: './http-activity-bar.component.html',
-  styleUrls: ['./http-activity-bar.component.scss'],
+    selector: 'ngbiz-http-activity-bar',
+    templateUrl: './http-activity-bar.component.html',
+    styleUrls: ['./http-activity-bar.component.scss'],
+    standalone: false
 })
 export class HttpActivityBarComponent implements OnInit {
   @HostBinding('style.z-index')

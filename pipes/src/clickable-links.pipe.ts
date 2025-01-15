@@ -1,6 +1,9 @@
 import { PipeTransform, Pipe } from '@angular/core';
 
-@Pipe({ name: 'clickableLinks' })
+@Pipe({
+    name: 'clickableLinks',
+    standalone: false
+})
 export class ClickableLinksPipe implements PipeTransform {
   transform(value: string) {
     // Convertir urls a links

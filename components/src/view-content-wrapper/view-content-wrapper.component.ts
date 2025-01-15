@@ -6,9 +6,10 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'ngbiz-view-content-wrapper',
-  templateUrl: './view-content-wrapper.component.html',
-  styleUrls: ['./view-content-wrapper.component.scss'],
+    selector: 'ngbiz-view-content-wrapper',
+    templateUrl: './view-content-wrapper.component.html',
+    styleUrls: ['./view-content-wrapper.component.scss'],
+    standalone: false
 })
 export class ViewContentWrapperComponent {
 

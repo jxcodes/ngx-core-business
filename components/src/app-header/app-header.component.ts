@@ -2,9 +2,10 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
 import { User } from './user.model';
 
 @Component({
-  selector: 'ngbiz-app-header',
-  templateUrl: './app-header.component.html',
-  styleUrls: ['./app-header.component.scss'],
+    selector: 'ngbiz-app-header',
+    templateUrl: './app-header.component.html',
+    styleUrls: ['./app-header.component.scss'],
+    standalone: false
 })
 export class AppHeaderComponent {
   @Output() menuButtonClick = new EventEmitter();

@@ -1,9 +1,10 @@
 import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'ngbiz-progress-view',
-  templateUrl: './progress-view.component.html',
-  styleUrls: ['./progress-view.component.scss'],
+    selector: 'ngbiz-progress-view',
+    templateUrl: './progress-view.component.html',
+    styleUrls: ['./progress-view.component.scss'],
+    standalone: false
 })
 export class ProgressViewComponent {
   @Input() text: string = 'Cargando...';

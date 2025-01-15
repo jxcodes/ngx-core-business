@@ -5,10 +5,9 @@ import { ButtonComponent } from './button.component';
 import type { User } from './user';
 
 @Component({
-  selector: 'storybook-header',
-  standalone: true,
-  imports: [CommonModule, ButtonComponent],
-  template: `<header>
+    selector: 'storybook-header',
+    imports: [CommonModule, ButtonComponent],
+    template: `<header>
   <div class="storybook-header">
     <div>
       <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +58,7 @@ import type { User } from './user';
     </div>
   </div>
 </header>`,
-  styleUrls: ['./header.css'],
+    styleUrls: ['./header.css']
 })
 export class HeaderComponent {
   @Input()

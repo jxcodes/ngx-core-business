@@ -3,9 +3,10 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'ngbiz-text-filter',
-  templateUrl: './text-filter.component.html',
-  styleUrls: ['./text-filter.component.scss']
+    selector: 'ngbiz-text-filter',
+    templateUrl: './text-filter.component.html',
+    styleUrls: ['./text-filter.component.scss'],
+    standalone: false
 })
 export class TextFilterComponent {
   @Input() debounceTime: number = 500;

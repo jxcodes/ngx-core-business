@@ -5,10 +5,9 @@ import { HeaderComponent } from './header.component';
 import type { User } from './user';
 
 @Component({
-  selector: 'storybook-page',
-  standalone: true,
-  imports: [CommonModule, HeaderComponent],
-  template: `<article>
+    selector: 'storybook-page',
+    imports: [CommonModule, HeaderComponent],
+    template: `<article>
   <storybook-header
     [user]="user"
     (onLogout)="doLogout()"
@@ -63,7 +62,7 @@ import type { User } from './user';
     </div>
   </section>
 </article>`,
-  styleUrls: ['./page.css'],
+    styleUrls: ['./page.css']
 })
 export class PageComponent {
   user: User | null = null;

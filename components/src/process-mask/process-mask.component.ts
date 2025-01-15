@@ -2,8 +2,9 @@ import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  templateUrl: './process-mask.component.html',
-  styleUrls: ['./process-mask.component.scss'],
+    templateUrl: './process-mask.component.html',
+    styleUrls: ['./process-mask.component.scss'],
+    standalone: false
 })
 export class ProcessMaskComponent {
   @Input() message: string = '';

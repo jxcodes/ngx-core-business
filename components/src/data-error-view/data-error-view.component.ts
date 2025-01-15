@@ -11,10 +11,11 @@ const HTTP_STATUS_MESSAGES: { [key: number]: string } = {
   503: 'Este servicio se encuentra temporalmente deshabilitado.'
 }
 @Component({
-  selector: 'ngbiz-data-error-view',
-  templateUrl: './data-error-view.component.html',
-  styleUrls: ['./data-error-view.component.scss'],
-  host: { class: 'container-center info-view danger' },
+    selector: 'ngbiz-data-error-view',
+    templateUrl: './data-error-view.component.html',
+    styleUrls: ['./data-error-view.component.scss'],
+    host: { class: 'container-center info-view danger' },
+    standalone: false
 })
 export class DataErrorViewComponent {
   defaultErrorMessage: string = 'Ha ocurrido un error en nuestro servidor, por favor intente más tarde.';

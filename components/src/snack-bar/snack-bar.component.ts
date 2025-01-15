@@ -2,8 +2,9 @@ import { Component, Inject } from '@angular/core';
 import { MAT_SNACK_BAR_DATA, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  templateUrl: './snack-bar.component.html',
-  styleUrls: ['./snack-bar.component.scss'],
+    templateUrl: './snack-bar.component.html',
+    styleUrls: ['./snack-bar.component.scss'],
+    standalone: false
 })
 export class SnackBarComponent {
   constructor(

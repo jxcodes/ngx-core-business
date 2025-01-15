@@ -2,10 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'storybook-button',
-  standalone: true,
-  imports: [CommonModule],
-  template: ` <button
+    selector: 'storybook-button',
+    imports: [CommonModule],
+    template: ` <button
   type="button"
   (click)="onClick.emit($event)"
   [ngClass]="classes"
@@ -13,7 +12,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 >
   {{ label }}
 </button>`,
-  styleUrls: ['./button.css'],
+    styleUrls: ['./button.css']
 })
 export class ButtonComponent {
   /** Is this the principal call to action on the page? */

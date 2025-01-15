@@ -3,9 +3,10 @@ import { Column, GridColumn } from './column';
 import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'ngbiz-grid',
-  templateUrl: './grid.component.html',
-  styleUrl: './grid.component.scss'
+    selector: 'ngbiz-grid',
+    templateUrl: './grid.component.html',
+    styleUrl: './grid.component.scss',
+    standalone: false
 })
 export class GridComponent {
   @Input() data: any[] = [];
