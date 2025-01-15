@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "include": ["components/**/*.ts"],
+  "exclude": ["components/test.ts", "components/**/*.spec.ts", "components/app/file-to-exclude.ts"]
+}
