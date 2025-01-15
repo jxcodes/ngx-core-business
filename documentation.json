@@ -164,21 +164,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AvatarComponent>",
-                "defaultValue": "{\n  //title: 'Forms/EditionPin',\n  tags: ['autodocs'],\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAvatarModule],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/app-header/AppHeader.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AppHeaderComponent>",
                 "defaultValue": "{\n  title: 'Application/Header',\n  tags: ['autodocs'],\n  component: AppHeaderComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAppHeaderModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AvatarComponent>",
+                "defaultValue": "{\n  //title: 'Forms/EditionPin',\n  tags: ['autodocs'],\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAvatarModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -300,8 +300,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
+                "rawtype": "StoryObj<AppHeaderComponent>",
+                "file": "projects/ngx-core-business/components/src/app-header/AppHeader.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -311,8 +311,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AppHeaderComponent>",
-                "file": "projects/ngx-core-business/components/src/app-header/AppHeader.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -654,19 +654,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AvatarComponent>",
-                    "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-core-business/components/src/app-header/AppHeader.stories.ts": [
                 {
                     "name": "Story",
@@ -674,6 +661,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AppHeaderComponent>",
                     "file": "projects/ngx-core-business/components/src/app-header/AppHeader.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "projects/ngx-core-business/components/src/avatar/Avatar.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
