@@ -1,6 +1,6 @@
 {
   "name": "ngx-core-business",
-  "version": "0.0.3",
+  "version": "19.0.0",
   "description": "A comprehensive solution designed to streamline the development of enterprise-level Angular applications.",
   "keywords": [
     "Angular",
@@ -16,7 +16,7 @@
     "Modals",
     "Layouts"
   ],
-  "author": "Jaime Cruz <jaimecruz.dev@gmail.com> (https://jaimecruz.pe/)",
+  "author": "Jaime Cruz <jaimecruz.in@gmail.com> (https://jaimecruz.pe/)",
   "license": "MIT",
   "exports": {
     ".": {
