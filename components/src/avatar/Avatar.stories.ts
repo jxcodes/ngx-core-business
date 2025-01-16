@@ -4,9 +4,8 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { NgBizAvatarModule } from './avatar.module';
 import { AvatarComponent } from './avatar.component';
 
-// More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<AvatarComponent> = {
-  //title: 'Forms/EditionPin',
+  title: 'Components/EditionPin',
   tags: ['autodocs'],
   component: AvatarComponent,
   decorators: [
