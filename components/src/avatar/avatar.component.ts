@@ -1,9 +1,9 @@
 import { Component, HostBinding, Input } from '@angular/core';
 @Component({
-    selector: 'ngbiz-avatar',
-    templateUrl: './avatar.component.html',
-    styleUrls: ['./avatar.component.scss'],
-    standalone: false
+  selector: 'ngbiz-avatar',
+  templateUrl: './avatar.component.html',
+  styleUrls: ['./avatar.component.scss'],
+  standalone: false
 })
 export class AvatarComponent {
   @Input() src: string | undefined;
