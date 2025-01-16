@@ -5,7 +5,7 @@ import { NgBizAppHeaderModule } from './app-header.module';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<AppHeaderComponent> = {
-  title: 'Components/Header',
+  title: 'Components/AppHeader',
   tags: ['autodocs'],
   component: AppHeaderComponent,
   decorators: [
