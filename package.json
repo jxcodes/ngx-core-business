@@ -18,6 +18,9 @@
   ],
   "author": "Jaime Cruz <jaimecruz.in@gmail.com> (https://jaimecruz.pe/)",
   "license": "MIT",
+  "scripts": {
+    "build:styles": "npx tailwindcss -i scss/tailwindcss.input.scss -o styles/ngx-core-business.all.css --minify"
+  },
   "exports": {
     ".": {
       "sass": "./sass/_index.scss"
