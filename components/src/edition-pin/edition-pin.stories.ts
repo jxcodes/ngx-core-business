@@ -6,7 +6,7 @@ import { EditionPinComponent } from './edition-pin.component';
 
 // More on how to set up stories at: https://storybook.js.org/docs/angular/writing-stories/introduction
 const meta: Meta<EditionPinComponent> = {
-  title: 'Forms/EditionPin',
+  title: 'Components/EditionPin',
   tags: ['autodocs'],
   component: EditionPinComponent,
   decorators: [

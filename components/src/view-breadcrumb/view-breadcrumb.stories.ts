@@ -5,7 +5,7 @@ import { NgBizBreadcrumbModule } from './view-breadcrumb.module';
 import { ViewBreadcrumbComponent } from './view-breadcrumb.component';
 
 const meta: Meta<ViewBreadcrumbComponent> = {
-  title: 'Application/ViewBreadcrumb',
+  title: 'Components/ViewBreadcrumb',
   tags: ['autodocs'],
   component: ViewBreadcrumbComponent,
   decorators: [

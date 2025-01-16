@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 
 const meta: Meta<NavListComponent> = {
-  title: 'Application/NavList',
+  title: 'Components/NavList',
   tags: ['autodocs'],
   component: NavListComponent,
   decorators: [
