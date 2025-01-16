@@ -27,7 +27,7 @@ mat-toolbar {
 .ngbiz-user-pin {
   border-radius: 16px;
 
-  &>* {
+  & > * {
     vertical-align: middle;
   }
 }
@@ -45,7 +45,10 @@ mat-toolbar {
   height: 24px;
   border-radius: 50%;
 }
-
+.modal-menu {
+  font-family: var(--mat-sys-body-medium-font);
+  font-size: var(--mat-sys-body-medium-size);
+}
 mat-toolbar {
   height: 100%;
   font-size: 13px;
@@ -66,7 +69,7 @@ mat-toolbar {
     margin-left: 4px;
     overflow: hidden;
 
-    >div {
+    > div {
       line-height: 1.2;
       font-size: 10px;
       text-overflow: ellipsis;

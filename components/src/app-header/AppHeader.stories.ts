@@ -21,6 +21,10 @@ type Story = StoryObj<AppHeaderComponent>;
 // More on writing stories with args: https://storybook.js.org/docs/angular/writing-stories/args
 export const ExampleOne: Story = {
   args: {
-    appName: 'My Awesome App',
+    appName: 'MY AWESOME APP',
+    user: {
+      email: 'jhon.doe@example.com',
+      name: 'Jhon Doe',
+    }
   },
 };
