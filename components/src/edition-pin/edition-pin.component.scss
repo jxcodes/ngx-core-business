@@ -1,11 +1,10 @@
-@import "../../../scss/vars";
 :host {
   display: inline-block;
   margin-right: 8px;
 }
 mat-icon {
   box-sizing: border-box;
-  background-color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+  background-color: var(--mat-sys-primary);
   color: white;
   border-radius: 50%;
   padding: 4px;
