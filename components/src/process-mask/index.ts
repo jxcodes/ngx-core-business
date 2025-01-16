@@ -1,2 +1,2 @@
-export * from './process-mast.module';
+export * from './process-mask.module';
 export * from './process-mask.component';
