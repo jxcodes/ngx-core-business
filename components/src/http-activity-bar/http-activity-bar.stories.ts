@@ -22,3 +22,9 @@ type Story = StoryObj<HttpActivityBarComponent>;
 // Stories
 export const Default: Story = {
 };
+
+export const Active: Story = {
+  args: {
+    active: true
+  }
+};
