@@ -5,7 +5,7 @@ import { NgBizAvatarModule } from './avatar.module';
 import { AvatarComponent } from './avatar.component';
 
 const meta: Meta<AvatarComponent> = {
-  title: 'Components/EditionPin',
+  title: 'Components/Avatar',
   tags: ['autodocs'],
   component: AvatarComponent,
   decorators: [
@@ -19,7 +19,7 @@ export default meta;
 type Story = StoryObj<AvatarComponent>;
 
 // Stories
-export const UserName: Story = {
+export const Default: Story = {
   args: {
     name: 'John Doe',
   },
