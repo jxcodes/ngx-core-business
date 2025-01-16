@@ -1,17 +1,17 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
-import { NgBizViewTitle } from "./view-title";
+import { ViewTitleComponent } from "./view-title.component";
 
 @NgModule({
   declarations: [
-    NgBizViewTitle,
+    ViewTitleComponent,
   ],
   imports: [
     CommonModule,
   ],
   exports: [
-    NgBizViewTitle,
+    ViewTitleComponent,
   ],
 })
 export class NgBizViewTitleModule { }

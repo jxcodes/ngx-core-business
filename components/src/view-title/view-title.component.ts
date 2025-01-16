@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./view-title.scss'],
     standalone: false
 })
-export class NgBizViewTitle {
+export class ViewTitleComponent {
 
 }
