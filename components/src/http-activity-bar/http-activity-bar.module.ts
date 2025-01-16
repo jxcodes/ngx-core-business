@@ -17,4 +17,4 @@ import { HttpActivityBarComponent } from "./http-activity-bar.component";
     HttpActivityBarComponent,
   ],
 })
-export class NgBizHttpActivityModule { }
+export class NgBizHttpActivityBarModule { }
