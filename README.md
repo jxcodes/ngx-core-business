@@ -31,8 +31,6 @@ npm install ngx-core-business
 
 Stay tuned for updates and more extensive documentation to make your Angular development experience smoother and more productive.
 
-## Documentation
-For in-depth information, examples, and usage guidelines, please refer to the official documentation, which will be available soon.
+## Documentation 📚
 
-**Note:** This README is a living document, and it will continuously evolve with the addition of more information and comprehensive documentation as it becomes available. We sincerely appreciate your selection of the Ngx Core Business Library for your Angular development requirements.
-
+[ngx-core-business Documentation](https://jxcodes.github.io/ngx-core-business)
