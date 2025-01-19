@@ -1,0 +1,64 @@
+import { Meta } from "@storybook/blocks";
+import { NGBIZ_PRIMARY } from "../../scss/design-tokens";
+
+<Meta title="Theming" />
+
+# Theming
+
+This library integrates seamlessly with the **Angular Material theming system**, enabling you to use prebuilt or custom themes. It also introduces **design tokens**, which provide a flexible and centralized approach to styling components consistently across your application.
+
+---
+
+## The NgBiz Theming System
+
+Theming in **NgBiz** is based on a cascading priority system to ensure predictable styling behavior:
+
+1. **Defined Design Tokens**: Tokens explicitly declared in your stylesheets take precedence.
+2. **Angular Material Theme**: If no token is defined, the Angular Material theme values are applied.
+3. **Default Values**: When neither tokens nor theme values are defined, the library falls back to predefined default values.
+
+This structure ensures that your application retains a consistent appearance while offering maximum customization flexibility.
+
+---
+
+## Design Tokens
+
+### Colors
+
+The following design token is available to customize the color scheme of **NgBiz** components:
+
+| Token Name        | Token Variable    | Description                                         |
+| ----------------- | ----------------- | --------------------------------------------------- |
+| **Primary Color** | `--ngbiz-primary` | The main color applied to all **NgBiz** components. |
+
+### Components
+
+#### NavList
+
+| Token Name      | Token Variable                                  | Description                                         |
+| --------------- | ----------------------------------------------- | --------------------------------------------------- |
+| **Hover Color** | `--ngbiz-nav-list-item-hover-state-layer-color` | The color applied to the hover state of list items. |
+
+---
+
+### How to Use Design Tokens
+
+You can define your custom design tokens by adding them to your global styles file (`styles.scss` or `styles.css`):
+
+```css
+:root {
+  --ngbiz-primary: #ff4081;
+}
+```
+
+## Default Values
+
+### Colors
+
+When design tokens or themes are not specified, the following default value is applied:
+
+| Token name        | Value                                                                                                                                                 |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Primary color** | <div style={{ background: NGBIZ_PRIMARY, color: '#fff', padding: '4px 8px', borderRadius: '4px', display: 'inline-block' }}>**{NGBIZ_PRIMARY}**</div> |
+
+---

@@ -1,0 +1,1 @@
+export const NGBIZ_PRIMARY = "#76b82a";
