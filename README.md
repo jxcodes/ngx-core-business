@@ -1,4 +1,4 @@
-# Welcome to `ngx-core-business`
+# Introducing the ngx-core-business Library
 
 `ngx-core-business` is an Angular library in active development, built on top of `@angular/material`. It aims to provide reusable, enterprise-grade UI components and utilities to streamline the development of scalable Angular applications.
 
@@ -32,34 +32,37 @@ Here’s what we’re working on and planning to add in future updates:
 You can get started with **`ngx-core-business`** and share your feedback as you go by following these steps:
 
 1. **Install the NgBiz**:
-   Install NgBiz by running the following command:  
+   Install NgBiz by running the following command:
    ```bash
    npm install ngx-core-business
    ```
-<br/>
+   <br/>
 2. **Install Angular Material(If not already installed)**  
-   Install Angular Material by running the following command:
-    ```bash
-    ng add @angular/material
-    ```
-    For more detailed guidance on setting up Angular Material, you can refer to the 
-    official documentation [here](https://material.angular.io/guide/getting-started)
-<br/>
-3. **Start Using NgBiz**  
-   Let’s test out a component! Import the NgBizAvatarModule into your standalone component’s imports and use the ng-biz-avatar component in the template:
-   ```typescript
-    import { NgBizAvatarModule } from 'ngx-core-business';
+    Install Angular Material by running the following command:
 
-    @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [
-        NgBizAvatarModule
-    ],
-    template: `<ng-biz-avatar name="John Doe"></ng-biz-avatar>`
-    })
-    export class AppComponent {}
+   ```bash
+   ng add @angular/material
    ```
+
+   For more detailed guidance on setting up Angular Material, you can refer to the
+   official documentation [here](https://material.angular.io/guide/getting-started)
+
+   <br/>
+
+3. **Start Using NgBiz**
+   Let’s test out a component! Import the NgBizAvatarModule into your standalone component’s imports and use the ng-biz-avatar component in the template:
+
+```typescript
+import { NgBizAvatarModule } from "ngx-core-business";
+
+@Component({
+  selector: "app-root",
+  standalone: true,
+  imports: [NgBizAvatarModule],
+  template: `<ng-biz-avatar name="John Doe"></ng-biz-avatar>`,
+})
+export class AppComponent {}
+```
 
 ## Documentation 📚
 
