@@ -20,5 +20,4 @@ export default meta;
 type Story = StoryObj<TextFilterComponent>;
 
 // Stories
-export const Default: Story = {
-};
+export const Default: Story = {};

@@ -14,10 +14,10 @@ input {
   border-radius: $ngbiz-filter-input-border-radius;
   outline-color: $ngbiz-accent-color;
   &:focus-visible {
-    outline-color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+    outline-color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));
     outline-style: solid;
     outline-width: 1px;
-    border-color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+    border-color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));
   }
 }
 .search-icon,
@@ -39,6 +39,6 @@ input {
   transform: translateY(-50%);
   cursor: pointer;
   &:hover {
-    color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));
   }
 }

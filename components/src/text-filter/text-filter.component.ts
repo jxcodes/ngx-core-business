@@ -3,14 +3,14 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
-    selector: 'ngbiz-text-filter',
-    templateUrl: './text-filter.component.html',
-    styleUrls: ['./text-filter.component.scss'],
-    standalone: false
+  selector: 'ngbiz-text-filter',
+  templateUrl: './text-filter.component.html',
+  styleUrls: ['./text-filter.component.scss'],
+  standalone: false,
 })
 export class TextFilterComponent {
   @Input() debounceTime: number = 500;
-  @Input() placeholder: string = "Buscar";
+  @Input() placeholder: string = 'Buscar';
   value: string = '';
   // Se usa valueChange porque change produce un error.
   @Output() valueChange: EventEmitter<string> = new EventEmitter();
