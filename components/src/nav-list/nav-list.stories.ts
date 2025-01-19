@@ -22,9 +22,32 @@ type Story = StoryObj<NavListComponent>;
 
 export const Example: Story = {
   args: {
+    activeItemId: 1,
     items: [
-      { text: 'Item 2', icon: 'home', route: 'abc', children: [] },
-      { text: 'Item 1', icon: 'person', route: 'def', children: [] },
+      { id: 1, text: 'Home', icon: 'home', route: '/home', children: [] },
+      { id: 2, text: 'Inbox', icon: 'inbox', route: '/inbox', children: [] },
+      {
+        id: 3,
+        text: 'Configuration',
+        icon: 'settings',
+        route: '/config',
+        children: [
+          {
+            id: 4,
+            text: 'Credentials',
+            icon: 'key',
+            route: '/users',
+            children: [],
+          },
+          {
+            id: 5,
+            text: 'Devices',
+            icon: 'display_settings',
+            route: '/roles',
+            children: [],
+          },
+        ],
+      },
     ],
   },
 };

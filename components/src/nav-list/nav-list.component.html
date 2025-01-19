@@ -6,8 +6,8 @@
   </ng-container>
 </mat-nav-list>
 <ng-template #navItem let-item="item" let-level="level">
-  <a *ngIf="!item.children?.length" mat-list-item [routerLink]="item.route" routerLinkActive="active"
-    (click)="onItemClick()" [class]="'l'+level">
+  <a *ngIf="!item.children?.length" mat-list-item [routerLink]="parseRoute(item.route)" [activated]="isActive(item)"
+    [class.active]="isActive(item)" (click)="onItemClick()" [class]="'l'+level">
     <div class="menu-item">
       <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
     </div>

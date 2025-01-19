@@ -1,8 +1,8 @@
 @import "../../../scss/vars";
 $levelSpacing: 22px;
-$selectionBorderWidth: 4px;
 $itemHorizontalPadding: 16px;
 $itemFontSize: 14px;
+
 a {
   cursor: pointer;
   font-size: $itemFontSize;
@@ -18,27 +18,51 @@ a {
   &.l4 {
     padding-left: $itemHorizontalPadding + $levelSpacing * 3;
   }
+  &:hover {
+    background: var(
+      --ngbiz-nav-list-item-hover-state-layer-color,
+      color-mix(
+        in srgb,
+        var(--mat-sys-on-surface)
+          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),
+        transparent
+      )
+    );
+  }
+}
+
+.mat-mdc-nav-list .mat-mdc-list-item {
+  border-radius: 8px;
+}
+mat-expansion-panel-header {
+  border-radius: 8px;
+  &.mat-expanded:hover {
+    background: var(
+      --ngbiz-nav-list-item-hover-state-layer-color,
+      color-mix(
+        in srgb,
+        var(--mat-sys-on-surface)
+          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),
+        transparent
+      )
+    );
+  }
 }
 a.active {
-  border-left: $selectionBorderWidth solid
-    var(--ngbiz-primary-color, $ngbiz-primary-color);
-
   mat-icon {
-    color: var(--ngbiz-primary-color, $ngbiz-primary-color);
+    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));
   }
   &.l1 {
-    padding-left: $itemHorizontalPadding - $selectionBorderWidth;
+    padding-left: $itemHorizontalPadding;
   }
   &.l2 {
-    padding-left: $itemHorizontalPadding + $levelSpacing - $selectionBorderWidth;
+    padding-left: $itemHorizontalPadding + $levelSpacing;
   }
   &.l3 {
-    padding-left: $itemHorizontalPadding + $levelSpacing * 2 -
-      $selectionBorderWidth;
+    padding-left: $itemHorizontalPadding + $levelSpacing * 2;
   }
   &.l4 {
-    padding-left: $itemHorizontalPadding + $levelSpacing * 3 -
-      $selectionBorderWidth;
+    padding-left: $itemHorizontalPadding + $levelSpacing * 3;
   }
 }
 
@@ -66,9 +90,12 @@ mat-icon {
     line-height: 20px;
   }
 }
+
 mat-expansion-panel {
   border-radius: 0;
+  background-color: initial;
 }
+
 mat-expansion-panel-header {
   padding: 0 $itemHorizontalPadding;
   height: $ngbiz-nav-item-height !important;
