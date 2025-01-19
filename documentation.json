@@ -637,12 +637,12 @@
         },
         {
             "name": "NavItemModel",
-            "id": "interface-NavItemModel-206ecb8e5036fde7cf8ef852980c04cc281f2d122c644f84ee04732864fc9bb724eca54d0b989d5192244c84294978577ad5ce688761945789b30b8315615242",
+            "id": "interface-NavItemModel-93f17018f0b9a502d4f2b9eb3e9af78afa48b7e7bf94a2bcfb7c062247daed6f5ae17d3b50fab89d815be5393f702a8287db7947b7ed4083b62b04fd84cf3edd",
             "file": "projects/ngx-core-business/components/src/nav-list/nav-item.model.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface NavItemModel {\r\n  icon: string;\r\n  text: string;\r\n  route?: string;\r\n  children?: NavItemModel[];\r\n}\r\n",
+            "sourceCode": "export interface NavItemModel {\r\n  id: number | string;\r\n  icon: string;\r\n  text: string;\r\n  route?: string;\r\n  children?: NavItemModel[];\r\n}\r\n",
             "properties": [
                 {
                     "name": "children",
@@ -652,13 +652,23 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 5
+                    "line": 6
                 },
                 {
                     "name": "icon",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number | string",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
@@ -672,7 +682,7 @@
                     "indexKey": "",
                     "optional": true,
                     "description": "",
-                    "line": 4
+                    "line": 5
                 },
                 {
                     "name": "text",
@@ -682,7 +692,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 3
+                    "line": 4
                 }
             ],
             "indexSignatures": [],
@@ -10080,7 +10090,7 @@
         },
         {
             "name": "NavListComponent",
-            "id": "component-NavListComponent-3f415f7fdf0ab56ae80c9d08a059ec476182b51c75230e3a32e8f1b9af78a4949938b2293e9053ac28c765a9f47f4909d9cd8bb38249ed017a5cc4ca512422b7",
+            "id": "component-NavListComponent-0ec21f7cd6c5f0d1f8a29b5a0d3907b8aa5bc42edf330b6ff2a89fcdfd36f465622ec48411cd188814565d98f67e239edc264fda6261dfbc8b1e341ebae4c982",
             "file": "projects/ngx-core-business/components/src/nav-list/nav-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -10099,11 +10109,19 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "activeItemId",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number | string",
+                    "decorators": []
+                },
+                {
                     "name": "items",
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 15,
                     "type": "NavItemModel[]",
                     "decorators": []
                 },
@@ -10111,23 +10129,111 @@
                     "name": "sidenav",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 13,
                     "type": "MatSidenav",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentRoute",
+                    "defaultValue": "\"\"",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "isActive",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "NavItemModel",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 29,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "NavItemModel",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 56,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "onItemClick",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "parseRoute",
+                    "args": [
+                        {
+                            "name": "route",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "route",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -10139,17 +10245,76 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { MatSidenav } from '@angular/material/sidenav';\r\nimport { NavItemModel } from './nav-item.model';\r\n@Component({\n    selector: 'ngbiz-nav-list',\n    templateUrl: './nav-list.component.html',\n    styleUrls: ['./nav-list.component.scss'],\n    standalone: false\n})\r\nexport class NavListComponent {\r\n  @Input()\r\n  sidenav!: MatSidenav;\r\n  @Input()\r\n  items: NavItemModel[] = [];\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === 'over') {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Component, ElementRef, Input, OnInit, Renderer2 } from \"@angular/core\";\r\nimport { MatSidenav } from \"@angular/material/sidenav\";\r\nimport { NavItemModel } from \"./nav-item.model\";\r\nimport { NavigationEnd, Router } from \"@angular/router\";\r\n@Component({\r\n  selector: \"ngbiz-nav-list\",\r\n  templateUrl: \"./nav-list.component.html\",\r\n  styleUrls: [\"./nav-list.component.scss\"],\r\n  standalone: false,\r\n})\r\nexport class NavListComponent implements OnInit {\r\n  @Input()\r\n  sidenav!: MatSidenav;\r\n  @Input()\r\n  items: NavItemModel[] = [];\r\n  @Input() activeItemId?: number | string;\r\n  constructor(\r\n    private router: Router,\r\n    private el: ElementRef,\r\n    private renderer: Renderer2\r\n  ) {}\r\n  currentRoute: string = \"\";\r\n\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === \"over\") {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n  isActive(item: NavItemModel) {\r\n    if (this.activeItemId) {\r\n      return this.activeItemId === item.id;\r\n    }\r\n    let route = item.route;\r\n    // Add / if it is not present\r\n    if (route && route[0] !== \"/\") {\r\n      route = \"/\" + route;\r\n    }\r\n    // Remove query params\r\n    route = route?.split(\"?\")[0];\r\n    return this.currentRoute === route;\r\n  }\r\n\r\n  parseRoute(route: string) {\r\n    return route[0] === \"/\" ? route : \"/\" + route;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.router.events.subscribe((event) => {\r\n      if (event instanceof NavigationEnd) {\r\n        this.currentRoute = event.urlAfterRedirects;\r\n        // remove query params\r\n        this.currentRoute = this.currentRoute.split(\"?\")[0];\r\n      }\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    // Remove padding from mat-expansion-panel-body\r\n    const targetElement = this.el.nativeElement.querySelector(\r\n      \".mat-expansion-panel-body\"\r\n    );\r\n    if (targetElement) {\r\n      this.renderer.setStyle(targetElement, \"padding\", \"0\");\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../scss/vars\";\r\n$levelSpacing: 22px;\r\n$selectionBorderWidth: 4px;\r\n$itemHorizontalPadding: 16px;\r\n$itemFontSize: 14px;\r\na {\r\n  cursor: pointer;\r\n  font-size: $itemFontSize;\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n}\r\na.active {\r\n  border-left: $selectionBorderWidth solid\r\n    var(--ngbiz-primary-color, $ngbiz-primary-color);\r\n\r\n  mat-icon {\r\n    color: var(--ngbiz-primary-color, $ngbiz-primary-color);\r\n  }\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding - $selectionBorderWidth;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing - $selectionBorderWidth;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2 -\r\n      $selectionBorderWidth;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3 -\r\n      $selectionBorderWidth;\r\n  }\r\n}\r\n\r\nmat-nav-list {\r\n  padding-top: 0;\r\n  width: 100%;\r\n  .mat-mdc-list-item {\r\n    height: $ngbiz-nav-item-height;\r\n    font-size: 14px;\r\n  }\r\n}\r\nmat-icon {\r\n  width: 18px;\r\n  height: 18px;\r\n  font-size: 18px;\r\n  margin-right: 4px;\r\n  line-height: 18px !important;\r\n  color: #616161;\r\n}\r\n\r\n.menu-item {\r\n  display: flex;\r\n  align-items: center;\r\n  > * {\r\n    line-height: 20px;\r\n  }\r\n}\r\nmat-expansion-panel {\r\n  border-radius: 0;\r\n}\r\nmat-expansion-panel-header {\r\n  padding: 0 $itemHorizontalPadding;\r\n  height: $ngbiz-nav-item-height !important;\r\n  font-size: $itemFontSize;\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &.mat-expanded {\r\n    height: $ngbiz-nav-item-height;\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../../scss/vars\";\r\n$levelSpacing: 22px;\r\n$itemHorizontalPadding: 16px;\r\n$itemFontSize: 14px;\r\n\r\na {\r\n  cursor: pointer;\r\n  font-size: $itemFontSize;\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\n\r\n.mat-mdc-nav-list .mat-mdc-list-item {\r\n  border-radius: 8px;\r\n}\r\nmat-expansion-panel-header {\r\n  border-radius: 8px;\r\n  &.mat-expanded:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\na.active {\r\n  mat-icon {\r\n    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n  }\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n}\r\n\r\nmat-nav-list {\r\n  padding-top: 0;\r\n  width: 100%;\r\n  .mat-mdc-list-item {\r\n    height: $ngbiz-nav-item-height;\r\n    font-size: 14px;\r\n  }\r\n}\r\nmat-icon {\r\n  width: 18px;\r\n  height: 18px;\r\n  font-size: 18px;\r\n  margin-right: 4px;\r\n  line-height: 18px !important;\r\n  color: #616161;\r\n}\r\n\r\n.menu-item {\r\n  display: flex;\r\n  align-items: center;\r\n  > * {\r\n    line-height: 20px;\r\n  }\r\n}\r\n\r\nmat-expansion-panel {\r\n  border-radius: 0;\r\n  background-color: initial;\r\n}\r\n\r\nmat-expansion-panel-header {\r\n  padding: 0 $itemHorizontalPadding;\r\n  height: $ngbiz-nav-item-height !important;\r\n  font-size: $itemFontSize;\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &.mat-expanded {\r\n    height: $ngbiz-nav-item-height;\r\n  }\r\n}\r\n",
                     "styleUrl": "./nav-list.component.scss"
                 }
             ],
             "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 16,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "el",
+                        "type": "ElementRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             "extends": [],
-            "templateData": "<mat-nav-list>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <ng-container *ngTemplateOutlet=\"navItem;\r\n    context: {item:item, level: 1}\">\r\n    </ng-container>\r\n  </ng-container>\r\n</mat-nav-list>\r\n<ng-template #navItem let-item=\"item\" let-level=\"level\">\r\n  <a *ngIf=\"!item.children?.length\" mat-list-item [routerLink]=\"item.route\" routerLinkActive=\"active\"\r\n    (click)=\"onItemClick()\" [class]=\"'l'+level\">\r\n    <div class=\"menu-item\">\r\n      <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n    </div>\r\n  </a>\r\n  <mat-expansion-panel *ngIf=\"item.children?.length\" class=\"mat-elevation-z0\">\r\n    <mat-expansion-panel-header [class]=\"'l'+level\">\r\n      <mat-panel-title>\r\n        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n      </mat-panel-title>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngFor=\"let child of item.children\">\r\n      <ng-container *ngTemplateOutlet=\"navItem;\r\n        context: {item:child, level: level+1}\">\r\n      </ng-container>\r\n    </ng-container>\r\n  </mat-expansion-panel>\r\n</ng-template>\r\n"
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<mat-nav-list>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <ng-container *ngTemplateOutlet=\"navItem;\r\n    context: {item:item, level: 1}\">\r\n    </ng-container>\r\n  </ng-container>\r\n</mat-nav-list>\r\n<ng-template #navItem let-item=\"item\" let-level=\"level\">\r\n  <a *ngIf=\"!item.children?.length\" mat-list-item [routerLink]=\"parseRoute(item.route)\" [activated]=\"isActive(item)\"\r\n    [class.active]=\"isActive(item)\" (click)=\"onItemClick()\" [class]=\"'l'+level\">\r\n    <div class=\"menu-item\">\r\n      <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n    </div>\r\n  </a>\r\n  <mat-expansion-panel *ngIf=\"item.children?.length\" class=\"mat-elevation-z0\">\r\n    <mat-expansion-panel-header [class]=\"'l'+level\">\r\n      <mat-panel-title>\r\n        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n      </mat-panel-title>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngFor=\"let child of item.children\">\r\n      <ng-container *ngTemplateOutlet=\"navItem;\r\n        context: {item:child, level: level+1}\">\r\n      </ng-container>\r\n    </ng-container>\r\n  </mat-expansion-panel>\r\n</ng-template>\r\n"
         },
         {
             "name": "ProcessButtonComponent",
@@ -10551,7 +10716,7 @@
         },
         {
             "name": "TextFilterComponent",
-            "id": "component-TextFilterComponent-d6941193f0778a0e9949e5ec2e924f426655e27beffa562d0268b3c7e5e97b2c9628fe0b0622b84ae62d83673c9808fdcc18964b4bd1da8eeb3e765bff0986fc",
+            "id": "component-TextFilterComponent-7ad8f4c45e13ee7bbb02b92a04699ccba5234e3852f62b70f83b9c22b38ce34ac8d430b74c1608ab07e378f633281007f0eb3a1a1d5c06d594bc9440073a6d6f",
             "file": "projects/ngx-core-business/components/src/text-filter/text-filter.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -10580,7 +10745,7 @@
                 },
                 {
                     "name": "placeholder",
-                    "defaultValue": "\"Buscar\"",
+                    "defaultValue": "'Buscar'",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 13,
@@ -10699,8 +10864,8 @@
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 903,
-                                "end": 904,
+                                "pos": 896,
+                                "end": 897,
                                 "kind": 80,
                                 "id": 0,
                                 "flags": 16842752,
@@ -10711,8 +10876,8 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
-                                "pos": 897,
-                                "end": 902,
+                                "pos": 890,
+                                "end": 895,
                                 "kind": 80,
                                 "id": 0,
                                 "flags": 16842752,
@@ -10733,11 +10898,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Subject } from 'rxjs';\nimport { debounceTime } from 'rxjs/operators';\n\n@Component({\n    selector: 'ngbiz-text-filter',\n    templateUrl: './text-filter.component.html',\n    styleUrls: ['./text-filter.component.scss'],\n    standalone: false\n})\nexport class TextFilterComponent {\n  @Input() debounceTime: number = 500;\n  @Input() placeholder: string = \"Buscar\";\n  value: string = '';\n  // Se usa valueChange porque change produce un error.\n  @Output() valueChange: EventEmitter<string> = new EventEmitter();\n  private searchBoxObs = new Subject<string>();\n  public searchBox = this.searchBoxObs.asObservable();\n\n  constructor() {\n    const me = this;\n    me.searchBox.pipe(debounceTime(me.debounceTime)).subscribe((word) => {\n      me.fireEvent(word);\n    });\n  }\n\n  /**\n   * Called when searchbox value changes.\n   * @param e\n   */\n  onSearchValueChange(e: any) {\n    let value = (e.value || '').trim();\n    if (this.debounceTime > 0) {\n      this.searchBoxObs.next(value);\n      return;\n    }\n    this.fireEvent(value);\n  }\n  fireEvent(value: string) {\n    this.valueChange.emit(value);\n  }\n  clearText() {\n    this.value = '';\n    this.fireEvent('');\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\nimport { Subject } from 'rxjs';\nimport { debounceTime } from 'rxjs/operators';\n\n@Component({\n  selector: 'ngbiz-text-filter',\n  templateUrl: './text-filter.component.html',\n  styleUrls: ['./text-filter.component.scss'],\n  standalone: false,\n})\nexport class TextFilterComponent {\n  @Input() debounceTime: number = 500;\n  @Input() placeholder: string = 'Buscar';\n  value: string = '';\n  // Se usa valueChange porque change produce un error.\n  @Output() valueChange: EventEmitter<string> = new EventEmitter();\n  private searchBoxObs = new Subject<string>();\n  public searchBox = this.searchBoxObs.asObservable();\n\n  constructor() {\n    const me = this;\n    me.searchBox.pipe(debounceTime(me.debounceTime)).subscribe((word) => {\n      me.fireEvent(word);\n    });\n  }\n\n  /**\n   * Called when searchbox value changes.\n   * @param e\n   */\n  onSearchValueChange(e: any) {\n    let value = (e.value || '').trim();\n    if (this.debounceTime > 0) {\n      this.searchBoxObs.next(value);\n      return;\n    }\n    this.fireEvent(value);\n  }\n  fireEvent(value: string) {\n    this.valueChange.emit(value);\n  }\n  clearText() {\n    this.value = '';\n    this.fireEvent('');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../scss/vars\";\r\n.wrapper {\r\n  display: flex;\r\n  width: 100%;\r\n  position: relative;\r\n}\r\ninput {\r\n  flex: 1;\r\n  padding: 0 31px;\r\n  min-height: 26px;\r\n  width: 100%;\r\n  height: 26px;\r\n  border: 1px solid #bdbdbd;\r\n  border-radius: $ngbiz-filter-input-border-radius;\r\n  outline-color: $ngbiz-accent-color;\r\n  &:focus-visible {\r\n    outline-color: var(--ngbiz-primary-color, $ngbiz-primary-color);\r\n    outline-style: solid;\r\n    outline-width: 1px;\r\n    border-color: var(--ngbiz-primary-color, $ngbiz-primary-color);\r\n  }\r\n}\r\n.search-icon,\r\n.clear-button {\r\n  font-size: 20px;\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n.search-icon {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 7px;\r\n  transform: translateY(-50%);\r\n}\r\n.clear-button {\r\n  position: absolute;\r\n  top: 50%;\r\n  right: 7px;\r\n  transform: translateY(-50%);\r\n  cursor: pointer;\r\n  &:hover {\r\n    color: var(--ngbiz-primary-color, $ngbiz-primary-color);\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../../scss/vars\";\r\n.wrapper {\r\n  display: flex;\r\n  width: 100%;\r\n  position: relative;\r\n}\r\ninput {\r\n  flex: 1;\r\n  padding: 0 31px;\r\n  min-height: 26px;\r\n  width: 100%;\r\n  height: 26px;\r\n  border: 1px solid #bdbdbd;\r\n  border-radius: $ngbiz-filter-input-border-radius;\r\n  outline-color: $ngbiz-accent-color;\r\n  &:focus-visible {\r\n    outline-color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n    outline-style: solid;\r\n    outline-width: 1px;\r\n    border-color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n  }\r\n}\r\n.search-icon,\r\n.clear-button {\r\n  font-size: 20px;\r\n  width: 20px;\r\n  height: 20px;\r\n}\r\n.search-icon {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 7px;\r\n  transform: translateY(-50%);\r\n}\r\n.clear-button {\r\n  position: absolute;\r\n  top: 50%;\r\n  right: 7px;\r\n  transform: translateY(-50%);\r\n  cursor: pointer;\r\n  &:hover {\r\n    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n  }\r\n}\r\n",
                     "styleUrl": "./text-filter.component.scss"
                 }
             ],
@@ -11565,13 +11730,13 @@
         },
         {
             "name": "NgBizTextFilterModule",
-            "id": "module-NgBizTextFilterModule-884d069b1c8ad0c7880ce22b0967ececa2921a95558fe212e3fe0cdcf0862d78a8b7e79d70ead2e2ac862d0d26a37e6099179afafd2e020c76d0668370b84a38",
+            "id": "module-NgBizTextFilterModule-c75689b3cec2ebfa61974d1e6fe6f5e390e3dc6b69890c0fea159b0bae537c3bd8535dc0332e54f4a8cf0bfc53d1a0900c0529b72b8c0f836693a8d31e02832d",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/ngx-core-business/components/src/text-filter/text-filter.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from \"@angular/core\";\r\nimport { CommonModule } from \"@angular/common\";\r\nimport { FormsModule } from \"@angular/forms\";\r\n\r\nimport { MatIconModule } from '@angular/material/icon';\r\n\r\nimport { TextFilterComponent } from \"./text-filter.component\";\r\n\r\n@NgModule({\r\n  declarations: [\r\n    TextFilterComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    FormsModule,\r\n    MatIconModule,\r\n  ],\r\n  exports: [\r\n    TextFilterComponent,\r\n  ],\r\n})\r\nexport class NgBizTextFilterModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { FormsModule } from '@angular/forms';\r\n\r\nimport { MatIconModule } from '@angular/material/icon';\r\n\r\nimport { TextFilterComponent } from './text-filter.component';\r\n\r\n@NgModule({\r\n  declarations: [TextFilterComponent],\r\n  imports: [CommonModule, FormsModule, MatIconModule],\r\n  exports: [TextFilterComponent],\r\n})\r\nexport class NgBizTextFilterModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -11759,7 +11924,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -11769,7 +11934,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
@@ -11853,7 +12018,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n}"
+                "defaultValue": "{}"
             },
             {
                 "name": "Default",
@@ -11913,7 +12078,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    items: [\n      { text: 'Item 2', icon: 'home', route: 'abc', children: [] },\n      { text: 'Item 1', icon: 'person', route: 'def', children: [] },\n    ],\n  },\n}"
+                "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: [\n      { id: 1, text: 'Home', icon: 'home', route: '/home', children: [] },\n      { id: 2, text: 'Inbox', icon: 'inbox', route: '/inbox', children: [] },\n      {\n        id: 3,\n        text: 'Configuration',\n        icon: 'settings',\n        route: '/config',\n        children: [\n          {\n            id: 4,\n            text: 'Credentials',\n            icon: 'key',\n            route: '/users',\n            children: [],\n          },\n          {\n            id: 5,\n            text: 'Devices',\n            icon: 'display_settings',\n            route: '/roles',\n            children: [],\n          },\n        ],\n      },\n    ],\n  },\n}"
             },
             {
                 "name": "HTTP_STATUS_MESSAGES",
@@ -11959,11 +12124,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<DialogComponent>",
-                "defaultValue": "{\n  title: 'Components/Dialog',\n  tags: ['autodocs'],\n  component: DialogComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDialogModule],\n    }),\n  ],\n}"
+                "type": "Meta<DataErrorViewComponent>",
+                "defaultValue": "{\n  title: 'Components/DataErrorView',\n  tags: ['autodocs'],\n  component: DataErrorViewComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDataErrorViewModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -11979,11 +12144,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<DataErrorViewComponent>",
-                "defaultValue": "{\n  title: 'Components/DataErrorView',\n  tags: ['autodocs'],\n  component: DataErrorViewComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDataErrorViewModule],\n    }),\n  ],\n}"
+                "type": "Meta<DialogComponent>",
+                "defaultValue": "{\n  title: 'Components/Dialog',\n  tags: ['autodocs'],\n  component: DialogComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDialogModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -12019,21 +12184,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<ProcessButtonComponent>",
-                "defaultValue": "{\n  title: 'Components/ProcessButton',\n  tags: ['autodocs'],\n  component: ProcessButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizProcessButtonModule],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<NavListComponent>",
                 "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ProcessButtonComponent>",
+                "defaultValue": "{\n  title: 'Components/ProcessButton',\n  tags: ['autodocs'],\n  component: ProcessButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizProcessButtonModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -12210,8 +12375,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DialogComponent>",
-                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                "rawtype": "StoryObj<DataErrorViewComponent>",
+                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12232,8 +12397,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DataErrorViewComponent>",
-                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                "rawtype": "StoryObj<DialogComponent>",
+                "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12276,8 +12441,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProcessButtonComponent>",
-                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                "rawtype": "StoryObj<NavListComponent>",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12287,8 +12452,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<NavListComponent>",
-                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "rawtype": "StoryObj<ProcessButtonComponent>",
+                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12556,28 +12721,6 @@
                     "defaultValue": "{\n  title: 'Components/Avatar',\n  tags: ['autodocs'],\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAvatarModule],\n    }),\n  ],\n}"
                 }
             ],
-            "projects/ngx-core-business/components/src/dialog/dialog.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<DialogComponent>",
-                    "defaultValue": "{\n  title: 'Components/Dialog',\n  tags: ['autodocs'],\n  component: DialogComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDialogModule],\n    }),\n  ],\n}"
-                }
-            ],
             "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
                 {
                     "name": "Default",
@@ -12598,6 +12741,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<DataErrorViewComponent>",
                     "defaultValue": "{\n  title: 'Components/DataErrorView',\n  tags: ['autodocs'],\n  component: DataErrorViewComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDataErrorViewModule],\n    }),\n  ],\n}"
+                }
+            ],
+            "projects/ngx-core-business/components/src/dialog/dialog.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DialogComponent>",
+                    "defaultValue": "{\n  title: 'Components/Dialog',\n  tags: ['autodocs'],\n  component: DialogComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDialogModule],\n    }),\n  ],\n}"
                 }
             ],
             "projects/ngx-core-business/components/src/grid/grid.stories.ts": [
@@ -12741,7 +12906,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n}"
+                    "defaultValue": "{}"
                 },
                 {
                     "name": "meta",
@@ -12829,7 +12994,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    items: [\n      { text: 'Item 2', icon: 'home', route: 'abc', children: [] },\n      { text: 'Item 1', icon: 'person', route: 'def', children: [] },\n    ],\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: [\n      { id: 1, text: 'Home', icon: 'home', route: '/home', children: [] },\n      { id: 2, text: 'Inbox', icon: 'inbox', route: '/inbox', children: [] },\n      {\n        id: 3,\n        text: 'Configuration',\n        icon: 'settings',\n        route: '/config',\n        children: [\n          {\n            id: 4,\n            text: 'Credentials',\n            icon: 'key',\n            route: '/users',\n            children: [],\n          },\n          {\n            id: 5,\n            text: 'Devices',\n            icon: 'display_settings',\n            route: '/roles',\n            children: [],\n          },\n        ],\n      },\n    ],\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -13027,13 +13192,13 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/dialog/dialog.stories.ts": [
+            "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<DialogComponent>",
-                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
+                    "rawtype": "StoryObj<DataErrorViewComponent>",
+                    "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13053,13 +13218,13 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
+            "projects/ngx-core-business/components/src/dialog/dialog.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<DataErrorViewComponent>",
-                    "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                    "rawtype": "StoryObj<DialogComponent>",
+                    "file": "projects/ngx-core-business/components/src/dialog/dialog.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13105,19 +13270,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProcessButtonComponent>",
-                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
                 {
                     "name": "Story",
@@ -13125,6 +13277,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<NavListComponent>",
                     "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ProcessButtonComponent>",
+                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13797,7 +13962,7 @@
                 "linktype": "interface",
                 "name": "NavItemModel",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -13806,7 +13971,7 @@
                 "linktype": "component",
                 "name": "NavListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
