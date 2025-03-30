@@ -10106,7 +10106,7 @@
         },
         {
             "name": "NavListComponent",
-            "id": "component-NavListComponent-efa36bcff3c897fe47e39769e7ab5d758569141e92cf4cac4096a02f0e17e93f1df912b375cea5a7d050a0646f4ef89a4d30a1796a8d2106f4ea59e81181b9f0",
+            "id": "component-NavListComponent-db02bd61a867c39f900ad1349c351db32d8dd58ab822383620443d687154449f107fbd9ec920b0dcfbbed7a612e3d061aa98a02f1e6943daa09d757a7e0c2727",
             "file": "projects/ngx-core-business/components/src/nav-list/nav-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -10128,7 +10128,7 @@
                     "name": "activeItemId",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 23,
                     "type": "number | string",
                     "decorators": []
                 },
@@ -10137,7 +10137,7 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
+                    "line": 22,
                     "type": "NavItem[]",
                     "decorators": []
                 },
@@ -10161,7 +10161,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 35
                 },
                 {
                     "name": "itemIconTemplate",
@@ -10235,7 +10235,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 41,
+                    "line": 43,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -10251,12 +10251,12 @@
                     ]
                 },
                 {
-                    "name": "ngAfterViewInit",
+                    "name": "ngAfterViewChecked",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 71,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10266,7 +10266,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10276,7 +10276,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 37,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10293,7 +10293,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -10307,6 +10307,19 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "removeExpansionPanelPadding",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 75,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
                 }
             ],
             "deprecated": false,
@@ -10318,7 +10331,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\r\n  Component,\r\n  ContentChild,\r\n  ElementRef,\r\n  Input,\r\n  OnInit,\r\n  Renderer2,\r\n  TemplateRef,\r\n} from '@angular/core';\r\nimport { MatSidenav } from '@angular/material/sidenav';\r\nimport { NavItem } from './nav-item.type';\r\nimport { NavigationEnd, Router } from '@angular/router';\r\n@Component({\r\n  selector: 'ngbiz-nav-list',\r\n  templateUrl: './nav-list.component.html',\r\n  styleUrls: ['./nav-list.component.scss'],\r\n  standalone: false,\r\n})\r\nexport class NavListComponent implements OnInit {\r\n  @Input()\r\n  sidenav!: MatSidenav;\r\n  @Input()\r\n  items: NavItem[] = [];\r\n  @Input() activeItemId?: number | string;\r\n  // Capture optional templates\r\n  @ContentChild('item') itemTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemIcon') itemIconTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemText') itemTextTemplate?: TemplateRef<any>;\r\n  constructor(\r\n    private router: Router,\r\n    private el: ElementRef,\r\n    private renderer: Renderer2\r\n  ) {}\r\n  currentRoute: string = '';\r\n\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === 'over') {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n  isActive(item: NavItem) {\r\n    if (this.activeItemId) {\r\n      return this.activeItemId === item.id;\r\n    }\r\n    let route = item.route;\r\n    // Add / if it is not present\r\n    if (route && route[0] !== '/') {\r\n      route = '/' + route;\r\n    }\r\n    // Remove query params\r\n    route = route?.split('?')[0];\r\n    return this.currentRoute === route;\r\n  }\r\n\r\n  parseRoute(route: string) {\r\n    return route[0] === '/' ? route : '/' + route;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.router.events.subscribe((event) => {\r\n      if (event instanceof NavigationEnd) {\r\n        this.currentRoute = event.urlAfterRedirects;\r\n        // remove query params\r\n        this.currentRoute = this.currentRoute.split('?')[0];\r\n      }\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    // Remove padding from mat-expansion-panel-body\r\n    const targetElement = this.el.nativeElement.querySelector(\r\n      '.mat-expansion-panel-body'\r\n    );\r\n    if (targetElement) {\r\n      this.renderer.setStyle(targetElement, 'padding', '0');\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  AfterViewChecked,\r\n  Component,\r\n  ContentChild,\r\n  ElementRef,\r\n  Input,\r\n  OnInit,\r\n  Renderer2,\r\n  TemplateRef,\r\n} from '@angular/core';\r\nimport { MatSidenav } from '@angular/material/sidenav';\r\nimport { NavItem } from './nav-item.type';\r\nimport { NavigationEnd, Router } from '@angular/router';\r\n@Component({\r\n  selector: 'ngbiz-nav-list',\r\n  templateUrl: './nav-list.component.html',\r\n  styleUrls: ['./nav-list.component.scss'],\r\n  standalone: false,\r\n})\r\nexport class NavListComponent implements OnInit, AfterViewChecked {\r\n  @Input() sidenav!: MatSidenav;\r\n  @Input() items: NavItem[] = [];\r\n  @Input() activeItemId?: number | string;\r\n\r\n  // Capture optional templates\r\n  @ContentChild('item') itemTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemIcon') itemIconTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemText') itemTextTemplate?: TemplateRef<any>;\r\n\r\n  constructor(\r\n    private router: Router,\r\n    private el: ElementRef,\r\n    private renderer: Renderer2\r\n  ) {}\r\n  currentRoute: string = '';\r\n\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === 'over') {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n\r\n  isActive(item: NavItem) {\r\n    if (this.activeItemId) {\r\n      return this.activeItemId === item.id;\r\n    }\r\n    let route = item.route;\r\n    // Add / if it is not present\r\n    if (route && route[0] !== '/') {\r\n      route = '/' + route;\r\n    }\r\n    // Remove query params\r\n    route = route?.split('?')[0];\r\n    return this.currentRoute === route;\r\n  }\r\n\r\n  parseRoute(route: string) {\r\n    return route[0] === '/' ? route : '/' + route;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.router.events.subscribe((event) => {\r\n      if (event instanceof NavigationEnd) {\r\n        this.currentRoute = event.urlAfterRedirects;\r\n        // remove query params\r\n        this.currentRoute = this.currentRoute.split('?')[0];\r\n      }\r\n    });\r\n  }\r\n\r\n  ngAfterViewChecked() {\r\n    this.removeExpansionPanelPadding();\r\n  }\r\n\r\n  private removeExpansionPanelPadding() {\r\n    const panels = this.el.nativeElement.querySelectorAll(\r\n      '.mat-expansion-panel-body'\r\n    );\r\n    panels.forEach((panel: HTMLElement) => {\r\n      this.renderer.setStyle(panel, 'padding', '0');\r\n    });\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -10385,7 +10398,8 @@
             },
             "extends": [],
             "implements": [
-                "OnInit"
+                "OnInit",
+                "AfterViewChecked"
             ],
             "templateData": "<mat-nav-list>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <ng-container\r\n      *ngTemplateOutlet=\"navItem; context: { item: item, level: 1 }\"\r\n    >\r\n    </ng-container>\r\n  </ng-container>\r\n</mat-nav-list>\r\n<ng-template #navItem let-item=\"item\" let-level=\"level\">\r\n  <a\r\n    *ngIf=\"!item.children?.length\"\r\n    mat-list-item\r\n    [routerLink]=\"parseRoute(item.route)\"\r\n    [activated]=\"isActive(item)\"\r\n    [class.active]=\"isActive(item)\"\r\n    (click)=\"onItemClick()\"\r\n    [class]=\"'l' + level\"\r\n  >\r\n    <div class=\"menu-item\">\r\n      <ng-container\r\n        *ngTemplateOutlet=\"\r\n          itemTemplate || defaultItemTemplate;\r\n          context: { item: item }\r\n        \"\r\n      />\r\n    </div>\r\n  </a>\r\n  <mat-expansion-panel *ngIf=\"item.children?.length\" class=\"mat-elevation-z0\">\r\n    <mat-expansion-panel-header [class]=\"'l' + level\">\r\n      <mat-panel-title>\r\n        <div class=\"menu-item\">\r\n          <ng-container\r\n            *ngTemplateOutlet=\"\r\n              itemTemplate || defaultItemTemplate;\r\n              context: { item: item }\r\n            \"\r\n          />\r\n        </div>\r\n      </mat-panel-title>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngFor=\"let child of item.children\">\r\n      <ng-container\r\n        *ngTemplateOutlet=\"navItem; context: { item: child, level: level + 1 }\"\r\n      >\r\n      </ng-container>\r\n    </ng-container>\r\n  </mat-expansion-panel>\r\n</ng-template>\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <ng-container\r\n    *ngTemplateOutlet=\"\r\n      itemIconTemplate || defaultItemIconTemplate;\r\n      context: { item: item }\r\n    \"\r\n  />\r\n  <ng-container\r\n    *ngTemplateOutlet=\"\r\n      itemTextTemplate || defaultItemTextTemplate;\r\n      context: { item: item }\r\n    \"\r\n  />\r\n</ng-template>\r\n<ng-template #defaultItemIconTemplate let-item=\"item\">\r\n  <mat-icon>{{ item.icon }}</mat-icon>\r\n</ng-template>\r\n<ng-template #defaultItemTextTemplate let-item=\"item\">\r\n  <span class=\"item__text\">{{ item.text }}</span>\r\n</ng-template>\r\n"
         },
@@ -11977,21 +11991,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    appName: 'MY AWESOME APP',\n    user: {\n      email: 'jhon.doe@example.com',\n      name: 'Jhon Doe',\n    },\n    menuButtonClick: () => {\n      alert('Menu button clicked');\n    },\n    logoutButtonClick: () => {\n      alert('Logout button clicked');\n    }\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    name: 'John Doe',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    appName: 'MY AWESOME APP',\n    user: {\n      email: 'jhon.doe@example.com',\n      name: 'Jhon Doe',\n    },\n    menuButtonClick: () => {\n      alert('Menu button clicked');\n    },\n    logoutButtonClick: () => {\n      alert('Logout button clicked');\n    }\n  },\n}"
             },
             {
                 "name": "Default",
@@ -12047,21 +12061,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -12217,21 +12231,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<AppHeaderComponent>",
-                "defaultValue": "{\n  title: 'Components/AppHeader',\n  tags: ['autodocs'],\n  component: AppHeaderComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAppHeaderModule],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<AvatarComponent>",
                 "defaultValue": "{\n  title: 'Components/Avatar',\n  tags: ['autodocs'],\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAvatarModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AppHeaderComponent>",
+                "defaultValue": "{\n  title: 'Components/AppHeader',\n  tags: ['autodocs'],\n  component: AppHeaderComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAppHeaderModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -12297,21 +12311,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<NavListComponent>",
-                "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ProcessButtonComponent>",
                 "defaultValue": "{\n  title: 'Components/ProcessButton',\n  tags: ['autodocs'],\n  component: ProcessButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizProcessButtonModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<NavListComponent>",
+                "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -12466,8 +12480,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AppHeaderComponent>",
-                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "projects/ngx-core-business/components/src/avatar/avatar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12477,8 +12491,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<AvatarComponent>",
-                "file": "projects/ngx-core-business/components/src/avatar/avatar.stories.ts",
+                "rawtype": "StoryObj<AppHeaderComponent>",
+                "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12554,8 +12568,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<NavListComponent>",
-                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "rawtype": "StoryObj<ProcessButtonComponent>",
+                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12565,8 +12579,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProcessButtonComponent>",
-                "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                "rawtype": "StoryObj<NavListComponent>",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12790,28 +12804,6 @@
                     "defaultValue": "{\n  title: 'Components/ViewBreadcrumb',\n  tags: ['autodocs'],\n  component: ViewBreadcrumbComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizBreadcrumbModule],\n    }),\n  ],\n}"
                 }
             ],
-            "projects/ngx-core-business/components/src/app-header/app-header.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    appName: 'MY AWESOME APP',\n    user: {\n      email: 'jhon.doe@example.com',\n      name: 'Jhon Doe',\n    },\n    menuButtonClick: () => {\n      alert('Menu button clicked');\n    },\n    logoutButtonClick: () => {\n      alert('Logout button clicked');\n    }\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<AppHeaderComponent>",
-                    "defaultValue": "{\n  title: 'Components/AppHeader',\n  tags: ['autodocs'],\n  component: AppHeaderComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAppHeaderModule],\n    }),\n  ],\n}"
-                }
-            ],
             "projects/ngx-core-business/components/src/avatar/avatar.stories.ts": [
                 {
                     "name": "Default",
@@ -12832,6 +12824,28 @@
                     "deprecationMessage": "",
                     "type": "Meta<AvatarComponent>",
                     "defaultValue": "{\n  title: 'Components/Avatar',\n  tags: ['autodocs'],\n  component: AvatarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAvatarModule],\n    }),\n  ],\n}"
+                }
+            ],
+            "projects/ngx-core-business/components/src/app-header/app-header.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    appName: 'MY AWESOME APP',\n    user: {\n      email: 'jhon.doe@example.com',\n      name: 'Jhon Doe',\n    },\n    menuButtonClick: () => {\n      alert('Menu button clicked');\n    },\n    logoutButtonClick: () => {\n      alert('Logout button clicked');\n    }\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AppHeaderComponent>",
+                    "defaultValue": "{\n  title: 'Components/AppHeader',\n  tags: ['autodocs'],\n  component: AppHeaderComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizAppHeaderModule],\n    }),\n  ],\n}"
                 }
             ],
             "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
@@ -12922,6 +12936,28 @@
                     "defaultValue": "{\n  title: 'Components/ListToolbar',\n  tags: ['autodocs'],\n  component: ListToolbarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizListToolbarModule],\n    }),\n  ],\n}"
                 }
             ],
+            "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ProcessButtonComponent>",
+                    "defaultValue": "{\n  title: 'Components/ProcessButton',\n  tags: ['autodocs'],\n  component: ProcessButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizProcessButtonModule],\n    }),\n  ],\n}"
+                }
+            ],
             "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
                 {
                     "name": "Default",
@@ -12982,28 +13018,6 @@
                     "deprecationMessage": "",
                     "type": "Meta<NavListComponent>",
                     "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
-                }
-            ],
-            "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<ProcessButtonComponent>",
-                    "defaultValue": "{\n  title: 'Components/ProcessButton',\n  tags: ['autodocs'],\n  component: ProcessButtonComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizProcessButtonModule],\n    }),\n  ],\n}"
                 }
             ],
             "projects/ngx-core-business/components/src/process-mask/process-mask.stories.ts": [
@@ -13319,19 +13333,6 @@
                     "kind": 192
                 }
             ],
-            "projects/ngx-core-business/components/src/app-header/app-header.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<AppHeaderComponent>",
-                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-core-business/components/src/avatar/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -13339,6 +13340,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<AvatarComponent>",
                     "file": "projects/ngx-core-business/components/src/avatar/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-core-business/components/src/app-header/app-header.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AppHeaderComponent>",
+                    "file": "projects/ngx-core-business/components/src/app-header/app-header.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13423,19 +13437,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<NavListComponent>",
-                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
                 {
                     "name": "Story",
@@ -13443,6 +13444,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ProcessButtonComponent>",
                     "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<NavListComponent>",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -14124,7 +14138,7 @@
                 "linktype": "component",
                 "name": "NavListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/14",
+                "coverageCount": "0/15",
                 "status": "low"
             },
             {

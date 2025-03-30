@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   Component,
   ContentChild,
   ElementRef,
@@ -16,16 +17,16 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./nav-list.component.scss'],
   standalone: false,
 })
-export class NavListComponent implements OnInit {
-  @Input()
-  sidenav!: MatSidenav;
-  @Input()
-  items: NavItem[] = [];
+export class NavListComponent implements OnInit, AfterViewChecked {
+  @Input() sidenav!: MatSidenav;
+  @Input() items: NavItem[] = [];
   @Input() activeItemId?: number | string;
+
   // Capture optional templates
   @ContentChild('item') itemTemplate?: TemplateRef<any>;
   @ContentChild('itemIcon') itemIconTemplate?: TemplateRef<any>;
   @ContentChild('itemText') itemTextTemplate?: TemplateRef<any>;
+
   constructor(
     private router: Router,
     private el: ElementRef,
@@ -38,6 +39,7 @@ export class NavListComponent implements OnInit {
       this.sidenav.close();
     }
   }
+
   isActive(item: NavItem) {
     if (this.activeItemId) {
       return this.activeItemId === item.id;
@@ -65,13 +67,17 @@ export class NavListComponent implements OnInit {
       }
     });
   }
-  ngAfterViewInit() {
-    // Remove padding from mat-expansion-panel-body
-    const targetElement = this.el.nativeElement.querySelector(
+
+  ngAfterViewChecked() {
+    this.removeExpansionPanelPadding();
+  }
+
+  private removeExpansionPanelPadding() {
+    const panels = this.el.nativeElement.querySelectorAll(
       '.mat-expansion-panel-body'
     );
-    if (targetElement) {
-      this.renderer.setStyle(targetElement, 'padding', '0');
-    }
+    panels.forEach((panel: HTMLElement) => {
+      this.renderer.setStyle(panel, 'padding', '0');
+    });
   }
 }
