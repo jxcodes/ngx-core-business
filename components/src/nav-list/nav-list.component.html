@@ -1,27 +1,68 @@
 <mat-nav-list>
   <ng-container *ngFor="let item of items">
-    <ng-container *ngTemplateOutlet="navItem;
-    context: {item:item, level: 1}">
+    <ng-container
+      *ngTemplateOutlet="navItem; context: { item: item, level: 1 }"
+    >
     </ng-container>
   </ng-container>
 </mat-nav-list>
 <ng-template #navItem let-item="item" let-level="level">
-  <a *ngIf="!item.children?.length" mat-list-item [routerLink]="parseRoute(item.route)" [activated]="isActive(item)"
-    [class.active]="isActive(item)" (click)="onItemClick()" [class]="'l'+level">
+  <a
+    *ngIf="!item.children?.length"
+    mat-list-item
+    [routerLink]="parseRoute(item.route)"
+    [activated]="isActive(item)"
+    [class.active]="isActive(item)"
+    (click)="onItemClick()"
+    [class]="'l' + level"
+  >
     <div class="menu-item">
-      <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
+      <ng-container
+        *ngTemplateOutlet="
+          itemTemplate || defaultItemTemplate;
+          context: { item: item }
+        "
+      />
     </div>
   </a>
   <mat-expansion-panel *ngIf="item.children?.length" class="mat-elevation-z0">
-    <mat-expansion-panel-header [class]="'l'+level">
+    <mat-expansion-panel-header [class]="'l' + level">
       <mat-panel-title>
-        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>
+        <div class="menu-item">
+          <ng-container
+            *ngTemplateOutlet="
+              itemTemplate || defaultItemTemplate;
+              context: { item: item }
+            "
+          />
+        </div>
       </mat-panel-title>
     </mat-expansion-panel-header>
     <ng-container *ngFor="let child of item.children">
-      <ng-container *ngTemplateOutlet="navItem;
-        context: {item:child, level: level+1}">
+      <ng-container
+        *ngTemplateOutlet="navItem; context: { item: child, level: level + 1 }"
+      >
       </ng-container>
     </ng-container>
   </mat-expansion-panel>
+</ng-template>
+<ng-template #defaultItemTemplate let-item="item">
+  <ng-container
+    *ngTemplateOutlet="
+      itemIconTemplate || defaultItemIconTemplate;
+      context: { item: item }
+    "
+  />
+  <ng-container
+    *ngTemplateOutlet="
+      itemTextTemplate || defaultItemTextTemplate;
+      context: { item: item }
+    "
+  />
+</ng-template>
+<ng-template #defaultItemIconTemplate let-item="item">
+  <mat-icon>{{ item.icon }}</mat-icon>
+</ng-template>
+<ng-template #defaultItemTextTemplate let-item="item">
+  <span class="item__text">{{ item.text }}</span>
 </ng-template>

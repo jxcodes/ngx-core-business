@@ -636,19 +636,19 @@
             ]
         },
         {
-            "name": "NavItemModel",
-            "id": "interface-NavItemModel-93f17018f0b9a502d4f2b9eb3e9af78afa48b7e7bf94a2bcfb7c062247daed6f5ae17d3b50fab89d815be5393f702a8287db7947b7ed4083b62b04fd84cf3edd",
-            "file": "projects/ngx-core-business/components/src/nav-list/nav-item.model.ts",
+            "name": "NavItem",
+            "id": "interface-NavItem-a423b53f17302ca707167634fd986cee1ff32c8537a63f28261ebd68a74c81524b7a74414891640589bad2b357f1c78d5fce037f04bc9b394e4b5b344316690d",
+            "file": "projects/ngx-core-business/components/src/nav-list/nav-item.type.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "interface",
-            "sourceCode": "export interface NavItemModel {\r\n  id: number | string;\r\n  icon: string;\r\n  text: string;\r\n  route?: string;\r\n  children?: NavItemModel[];\r\n}\r\n",
+            "sourceCode": "export interface NavItem {\r\n  id: number | string;\r\n  icon?: string;\r\n  text: string;\r\n  route?: string;\r\n  children?: NavItem[];\r\n  // Optional properties\r\n  [key: string]: any;\r\n}\r\n",
             "properties": [
                 {
                     "name": "children",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "NavItemModel[]",
+                    "type": "NavItem[]",
                     "indexKey": "",
                     "optional": true,
                     "description": "",
@@ -660,7 +660,7 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "indexKey": "",
-                    "optional": false,
+                    "optional": true,
                     "description": "",
                     "line": 3
                 },
@@ -695,8 +695,24 @@
                     "line": 4
                 }
             ],
-            "indexSignatures": [],
-            "kind": 171,
+            "indexSignatures": [
+                {
+                    "id": "index-declaration-a423b53f17302ca707167634fd986cee1ff32c8537a63f28261ebd68a74c81524b7a74414891640589bad2b357f1c78d5fce037f04bc9b394e4b5b344316690d",
+                    "args": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "any",
+                    "line": 6,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "kind": 181,
             "methods": [],
             "extends": []
         },
@@ -10090,7 +10106,7 @@
         },
         {
             "name": "NavListComponent",
-            "id": "component-NavListComponent-0ec21f7cd6c5f0d1f8a29b5a0d3907b8aa5bc42edf330b6ff2a89fcdfd36f465622ec48411cd188814565d98f67e239edc264fda6261dfbc8b1e341ebae4c982",
+            "id": "component-NavListComponent-efa36bcff3c897fe47e39769e7ab5d758569141e92cf4cac4096a02f0e17e93f1df912b375cea5a7d050a0646f4ef89a4d30a1796a8d2106f4ea59e81181b9f0",
             "file": "projects/ngx-core-business/components/src/nav-list/nav-list.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -10112,7 +10128,7 @@
                     "name": "activeItemId",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 24,
                     "type": "number | string",
                     "decorators": []
                 },
@@ -10121,15 +10137,15 @@
                     "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 15,
-                    "type": "NavItemModel[]",
+                    "line": 23,
+                    "type": "NavItem[]",
                     "decorators": []
                 },
                 {
                     "name": "sidenav",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 21,
                     "type": "MatSidenav",
                     "decorators": []
                 }
@@ -10138,14 +10154,71 @@
             "propertiesClass": [
                 {
                     "name": "currentRoute",
-                    "defaultValue": "\"\"",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "string",
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 34
+                },
+                {
+                    "name": "itemIconTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 27,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "'itemIcon'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                },
+                {
+                    "name": "itemTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "'item'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                },
+                {
+                    "name": "itemTextTemplate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 28,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "'itemText'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
                 }
             ],
             "methodsClass": [
@@ -10154,7 +10227,7 @@
                     "args": [
                         {
                             "name": "item",
-                            "type": "NavItemModel",
+                            "type": "NavItem",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -10162,13 +10235,13 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
                             "name": "item",
-                            "type": "NavItemModel",
+                            "type": "NavItem",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -10183,7 +10256,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 68,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10193,7 +10266,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 47,
+                    "line": 59,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10203,7 +10276,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -10220,7 +10293,7 @@
                     "optional": false,
                     "returnType": "string",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 55,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -10245,11 +10318,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ElementRef, Input, OnInit, Renderer2 } from \"@angular/core\";\r\nimport { MatSidenav } from \"@angular/material/sidenav\";\r\nimport { NavItemModel } from \"./nav-item.model\";\r\nimport { NavigationEnd, Router } from \"@angular/router\";\r\n@Component({\r\n  selector: \"ngbiz-nav-list\",\r\n  templateUrl: \"./nav-list.component.html\",\r\n  styleUrls: [\"./nav-list.component.scss\"],\r\n  standalone: false,\r\n})\r\nexport class NavListComponent implements OnInit {\r\n  @Input()\r\n  sidenav!: MatSidenav;\r\n  @Input()\r\n  items: NavItemModel[] = [];\r\n  @Input() activeItemId?: number | string;\r\n  constructor(\r\n    private router: Router,\r\n    private el: ElementRef,\r\n    private renderer: Renderer2\r\n  ) {}\r\n  currentRoute: string = \"\";\r\n\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === \"over\") {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n  isActive(item: NavItemModel) {\r\n    if (this.activeItemId) {\r\n      return this.activeItemId === item.id;\r\n    }\r\n    let route = item.route;\r\n    // Add / if it is not present\r\n    if (route && route[0] !== \"/\") {\r\n      route = \"/\" + route;\r\n    }\r\n    // Remove query params\r\n    route = route?.split(\"?\")[0];\r\n    return this.currentRoute === route;\r\n  }\r\n\r\n  parseRoute(route: string) {\r\n    return route[0] === \"/\" ? route : \"/\" + route;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.router.events.subscribe((event) => {\r\n      if (event instanceof NavigationEnd) {\r\n        this.currentRoute = event.urlAfterRedirects;\r\n        // remove query params\r\n        this.currentRoute = this.currentRoute.split(\"?\")[0];\r\n      }\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    // Remove padding from mat-expansion-panel-body\r\n    const targetElement = this.el.nativeElement.querySelector(\r\n      \".mat-expansion-panel-body\"\r\n    );\r\n    if (targetElement) {\r\n      this.renderer.setStyle(targetElement, \"padding\", \"0\");\r\n    }\r\n  }\r\n}\r\n",
+            "sourceCode": "import {\r\n  Component,\r\n  ContentChild,\r\n  ElementRef,\r\n  Input,\r\n  OnInit,\r\n  Renderer2,\r\n  TemplateRef,\r\n} from '@angular/core';\r\nimport { MatSidenav } from '@angular/material/sidenav';\r\nimport { NavItem } from './nav-item.type';\r\nimport { NavigationEnd, Router } from '@angular/router';\r\n@Component({\r\n  selector: 'ngbiz-nav-list',\r\n  templateUrl: './nav-list.component.html',\r\n  styleUrls: ['./nav-list.component.scss'],\r\n  standalone: false,\r\n})\r\nexport class NavListComponent implements OnInit {\r\n  @Input()\r\n  sidenav!: MatSidenav;\r\n  @Input()\r\n  items: NavItem[] = [];\r\n  @Input() activeItemId?: number | string;\r\n  // Capture optional templates\r\n  @ContentChild('item') itemTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemIcon') itemIconTemplate?: TemplateRef<any>;\r\n  @ContentChild('itemText') itemTextTemplate?: TemplateRef<any>;\r\n  constructor(\r\n    private router: Router,\r\n    private el: ElementRef,\r\n    private renderer: Renderer2\r\n  ) {}\r\n  currentRoute: string = '';\r\n\r\n  onItemClick() {\r\n    if (this.sidenav?.mode === 'over') {\r\n      this.sidenav.close();\r\n    }\r\n  }\r\n  isActive(item: NavItem) {\r\n    if (this.activeItemId) {\r\n      return this.activeItemId === item.id;\r\n    }\r\n    let route = item.route;\r\n    // Add / if it is not present\r\n    if (route && route[0] !== '/') {\r\n      route = '/' + route;\r\n    }\r\n    // Remove query params\r\n    route = route?.split('?')[0];\r\n    return this.currentRoute === route;\r\n  }\r\n\r\n  parseRoute(route: string) {\r\n    return route[0] === '/' ? route : '/' + route;\r\n  }\r\n\r\n  ngOnInit(): void {\r\n    this.router.events.subscribe((event) => {\r\n      if (event instanceof NavigationEnd) {\r\n        this.currentRoute = event.urlAfterRedirects;\r\n        // remove query params\r\n        this.currentRoute = this.currentRoute.split('?')[0];\r\n      }\r\n    });\r\n  }\r\n  ngAfterViewInit() {\r\n    // Remove padding from mat-expansion-panel-body\r\n    const targetElement = this.el.nativeElement.querySelector(\r\n      '.mat-expansion-panel-body'\r\n    );\r\n    if (targetElement) {\r\n      this.renderer.setStyle(targetElement, 'padding', '0');\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../../scss/vars\";\r\n$levelSpacing: 22px;\r\n$itemHorizontalPadding: 16px;\r\n$itemFontSize: 14px;\r\n\r\na {\r\n  cursor: pointer;\r\n  font-size: $itemFontSize;\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\n\r\n.mat-mdc-nav-list .mat-mdc-list-item {\r\n  border-radius: 8px;\r\n}\r\nmat-expansion-panel-header {\r\n  border-radius: 8px;\r\n  &.mat-expanded:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\na.active {\r\n  mat-icon {\r\n    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n  }\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n}\r\n\r\nmat-nav-list {\r\n  padding-top: 0;\r\n  width: 100%;\r\n  .mat-mdc-list-item {\r\n    height: $ngbiz-nav-item-height;\r\n    font-size: 14px;\r\n  }\r\n}\r\nmat-icon {\r\n  width: 18px;\r\n  height: 18px;\r\n  font-size: 18px;\r\n  margin-right: 4px;\r\n  line-height: 18px !important;\r\n  color: #616161;\r\n}\r\n\r\n.menu-item {\r\n  display: flex;\r\n  align-items: center;\r\n  > * {\r\n    line-height: 20px;\r\n  }\r\n}\r\n\r\nmat-expansion-panel {\r\n  border-radius: 0;\r\n  background-color: initial;\r\n}\r\n\r\nmat-expansion-panel-header {\r\n  padding: 0 $itemHorizontalPadding;\r\n  height: $ngbiz-nav-item-height !important;\r\n  font-size: $itemFontSize;\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &.mat-expanded {\r\n    height: $ngbiz-nav-item-height;\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../../scss/vars\";\r\n$levelSpacing: 22px;\r\n$itemHorizontalPadding: 16px;\r\n\r\na {\r\n  cursor: pointer;\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\n\r\n.mat-mdc-nav-list .mat-mdc-list-item {\r\n  border-radius: 8px;\r\n}\r\nmat-expansion-panel-header {\r\n  border-radius: 8px;\r\n  &.mat-expanded:hover {\r\n    background: var(\r\n      --ngbiz-nav-list-item-hover-state-layer-color,\r\n      color-mix(\r\n        in srgb,\r\n        var(--mat-sys-on-surface)\r\n          calc(var(--mat-sys-hover-state-layer-opacity) * 100%),\r\n        transparent\r\n      )\r\n    );\r\n  }\r\n}\r\na.active {\r\n  mat-icon {\r\n    color: var(--ngbiz-primary, var(--mat-sys-primary, $ngbiz-primary-color));\r\n  }\r\n  &.l1 {\r\n    padding-left: $itemHorizontalPadding;\r\n  }\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n}\r\n\r\nmat-nav-list {\r\n  padding-top: 0;\r\n  width: 100%;\r\n  .mat-mdc-list-item {\r\n    height: $ngbiz-nav-item-height;\r\n  }\r\n}\r\nmat-icon {\r\n  width: 18px;\r\n  height: 18px;\r\n  font-size: 18px;\r\n  line-height: 18px !important;\r\n  color: #616161;\r\n}\r\n\r\n.menu-item {\r\n  display: flex;\r\n  align-items: center;\r\n  column-gap: 6px;\r\n  > * {\r\n    line-height: 20px;\r\n  }\r\n}\r\n\r\nmat-expansion-panel {\r\n  border-radius: 0;\r\n  background-color: initial;\r\n}\r\n\r\nmat-expansion-panel-header {\r\n  padding: 0 $itemHorizontalPadding;\r\n  height: $ngbiz-nav-item-height !important;\r\n  &.l2 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing;\r\n  }\r\n  &.l3 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 2;\r\n  }\r\n  &.l4 {\r\n    padding-left: $itemHorizontalPadding + $levelSpacing * 3;\r\n  }\r\n  &.mat-expanded {\r\n    height: $ngbiz-nav-item-height;\r\n  }\r\n}\r\n\r\n.item__text {\r\n  text-overflow: ellipsis;\r\n  overflow: hidden;\r\n  white-space: nowrap;\r\n}\r\n",
                     "styleUrl": "./nav-list.component.scss"
                 }
             ],
@@ -10279,7 +10352,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 16,
+                "line": 28,
                 "jsdoctags": [
                     {
                         "name": "router",
@@ -10314,7 +10387,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<mat-nav-list>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <ng-container *ngTemplateOutlet=\"navItem;\r\n    context: {item:item, level: 1}\">\r\n    </ng-container>\r\n  </ng-container>\r\n</mat-nav-list>\r\n<ng-template #navItem let-item=\"item\" let-level=\"level\">\r\n  <a *ngIf=\"!item.children?.length\" mat-list-item [routerLink]=\"parseRoute(item.route)\" [activated]=\"isActive(item)\"\r\n    [class.active]=\"isActive(item)\" (click)=\"onItemClick()\" [class]=\"'l'+level\">\r\n    <div class=\"menu-item\">\r\n      <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n    </div>\r\n  </a>\r\n  <mat-expansion-panel *ngIf=\"item.children?.length\" class=\"mat-elevation-z0\">\r\n    <mat-expansion-panel-header [class]=\"'l'+level\">\r\n      <mat-panel-title>\r\n        <mat-icon>{{item.icon}}</mat-icon><span>{{item.text}}</span>\r\n      </mat-panel-title>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngFor=\"let child of item.children\">\r\n      <ng-container *ngTemplateOutlet=\"navItem;\r\n        context: {item:child, level: level+1}\">\r\n      </ng-container>\r\n    </ng-container>\r\n  </mat-expansion-panel>\r\n</ng-template>\r\n"
+            "templateData": "<mat-nav-list>\r\n  <ng-container *ngFor=\"let item of items\">\r\n    <ng-container\r\n      *ngTemplateOutlet=\"navItem; context: { item: item, level: 1 }\"\r\n    >\r\n    </ng-container>\r\n  </ng-container>\r\n</mat-nav-list>\r\n<ng-template #navItem let-item=\"item\" let-level=\"level\">\r\n  <a\r\n    *ngIf=\"!item.children?.length\"\r\n    mat-list-item\r\n    [routerLink]=\"parseRoute(item.route)\"\r\n    [activated]=\"isActive(item)\"\r\n    [class.active]=\"isActive(item)\"\r\n    (click)=\"onItemClick()\"\r\n    [class]=\"'l' + level\"\r\n  >\r\n    <div class=\"menu-item\">\r\n      <ng-container\r\n        *ngTemplateOutlet=\"\r\n          itemTemplate || defaultItemTemplate;\r\n          context: { item: item }\r\n        \"\r\n      />\r\n    </div>\r\n  </a>\r\n  <mat-expansion-panel *ngIf=\"item.children?.length\" class=\"mat-elevation-z0\">\r\n    <mat-expansion-panel-header [class]=\"'l' + level\">\r\n      <mat-panel-title>\r\n        <div class=\"menu-item\">\r\n          <ng-container\r\n            *ngTemplateOutlet=\"\r\n              itemTemplate || defaultItemTemplate;\r\n              context: { item: item }\r\n            \"\r\n          />\r\n        </div>\r\n      </mat-panel-title>\r\n    </mat-expansion-panel-header>\r\n    <ng-container *ngFor=\"let child of item.children\">\r\n      <ng-container\r\n        *ngTemplateOutlet=\"navItem; context: { item: child, level: level + 1 }\"\r\n      >\r\n      </ng-container>\r\n    </ng-container>\r\n  </mat-expansion-panel>\r\n</ng-template>\r\n<ng-template #defaultItemTemplate let-item=\"item\">\r\n  <ng-container\r\n    *ngTemplateOutlet=\"\r\n      itemIconTemplate || defaultItemIconTemplate;\r\n      context: { item: item }\r\n    \"\r\n  />\r\n  <ng-container\r\n    *ngTemplateOutlet=\"\r\n      itemTextTemplate || defaultItemTextTemplate;\r\n      context: { item: item }\r\n    \"\r\n  />\r\n</ng-template>\r\n<ng-template #defaultItemIconTemplate let-item=\"item\">\r\n  <mat-icon>{{ item.icon }}</mat-icon>\r\n</ng-template>\r\n<ng-template #defaultItemTextTemplate let-item=\"item\">\r\n  <span class=\"item__text\">{{ item.text }}</span>\r\n</ng-template>\r\n"
         },
         {
             "name": "ProcessButtonComponent",
@@ -11974,6 +12047,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/process-button/process-button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -12051,6 +12134,16 @@
                 "defaultValue": "{\n  args: {\n    icon: 'delete',\n  },\n}"
             },
             {
+                "name": "demoItems",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "NavItem[]",
+                "defaultValue": "[\n  {\n    id: 1,\n    text: 'Home',\n    emoji: '🏠',\n    icon: 'home',\n    route: '/home',\n    children: [],\n    color: 'red',\n  },\n  {\n    id: 2,\n    text: 'Inbox',\n    icon: 'inbox',\n    emoji: '📥',\n    route: '/inbox',\n    children: [],\n    color: 'blue',\n  },\n  {\n    id: 3,\n    text: 'Configuration',\n    icon: 'settings',\n    emoji: '⚙️',\n    route: '/config',\n    color: 'orange',\n    children: [\n      {\n        id: 4,\n        text: 'Credentials',\n        icon: 'key',\n        emoji: '🔑',\n        route: '/users',\n        color: 'magenta',\n        children: [],\n      },\n      {\n        id: 5,\n        text: 'Devices',\n        icon: 'display_settings',\n        emoji: '📺',\n        route: '/roles',\n        children: [],\n        color: 'green',\n      },\n    ],\n  },\n]"
+            },
+            {
                 "name": "Edit",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -12071,16 +12164,6 @@
                 "defaultValue": "/^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$/"
             },
             {
-                "name": "Example",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: [\n      { id: 1, text: 'Home', icon: 'home', route: '/home', children: [] },\n      { id: 2, text: 'Inbox', icon: 'inbox', route: '/inbox', children: [] },\n      {\n        id: 3,\n        text: 'Configuration',\n        icon: 'settings',\n        route: '/config',\n        children: [\n          {\n            id: 4,\n            text: 'Credentials',\n            icon: 'key',\n            route: '/users',\n            children: [],\n          },\n          {\n            id: 5,\n            text: 'Devices',\n            icon: 'display_settings',\n            route: '/roles',\n            children: [],\n          },\n        ],\n      },\n    ],\n  },\n}"
-            },
-            {
                 "name": "HTTP_STATUS_MESSAGES",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -12099,6 +12182,36 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "{\r\n  0: 'No se pudo conectar con el servidor',\r\n  400: 'El servidor no pudo procesar la petición',\r\n  401: 'Inicio de sesión requerido.',\r\n  403: 'Acceso prohibido.',\r\n  404: 'Es servicio solicitado no existe.',\r\n  500: 'Ha ocurrido un error en nuestro servidor, por favor intente más tarde.',\r\n  502: 'No se recibio respuesta de servicio externo.',\r\n  503: 'Este servicio se encuentra temporalmente deshabilitado.'\r\n}"
+            },
+            {
+                "name": "ItemIconTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #itemIcon let-item=\"item\">\n          <span>{{item.emoji}}</span>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+            },
+            {
+                "name": "ItemTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #item let-item=\"item\">\n          <span>{{item.emoji}}</span><i style=\"color: {{item.color}}\">{{ item.text }}</i>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+            },
+            {
+                "name": "ItemTexTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #itemText let-item=\"item\">\n          <i style=\"color: {{item.color}}\">{{ item.text }}</i>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
             },
             {
                 "name": "meta",
@@ -12124,21 +12237,21 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<DataErrorViewComponent>",
-                "defaultValue": "{\n  title: 'Components/DataErrorView',\n  tags: ['autodocs'],\n  component: DataErrorViewComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDataErrorViewModule],\n    }),\n  ],\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/ngx-core-business/components/src/edition-pin/edition-pin.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<EditionPinComponent>",
                 "defaultValue": "{\n  title: 'Components/EditionPin',\n  tags: ['autodocs'],\n  component: EditionPinComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizEditionPinModule],\n    }),\n  ],\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DataErrorViewComponent>",
+                "defaultValue": "{\n  title: 'Components/DataErrorView',\n  tags: ['autodocs'],\n  component: DataErrorViewComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizDataErrorViewModule],\n    }),\n  ],\n}"
             },
             {
                 "name": "meta",
@@ -12375,8 +12488,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<DataErrorViewComponent>",
-                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
+                "rawtype": "StoryObj<EditionPinComponent>",
+                "file": "projects/ngx-core-business/components/src/edition-pin/edition-pin.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12386,8 +12499,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<EditionPinComponent>",
-                "file": "projects/ngx-core-business/components/src/edition-pin/edition-pin.stories.ts",
+                "rawtype": "StoryObj<DataErrorViewComponent>",
+                "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -12809,6 +12922,68 @@
                     "defaultValue": "{\n  title: 'Components/ListToolbar',\n  tags: ['autodocs'],\n  component: ListToolbarComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizListToolbarModule],\n    }),\n  ],\n}"
                 }
             ],
+            "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+                },
+                {
+                    "name": "demoItems",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "NavItem[]",
+                    "defaultValue": "[\n  {\n    id: 1,\n    text: 'Home',\n    emoji: '🏠',\n    icon: 'home',\n    route: '/home',\n    children: [],\n    color: 'red',\n  },\n  {\n    id: 2,\n    text: 'Inbox',\n    icon: 'inbox',\n    emoji: '📥',\n    route: '/inbox',\n    children: [],\n    color: 'blue',\n  },\n  {\n    id: 3,\n    text: 'Configuration',\n    icon: 'settings',\n    emoji: '⚙️',\n    route: '/config',\n    color: 'orange',\n    children: [\n      {\n        id: 4,\n        text: 'Credentials',\n        icon: 'key',\n        emoji: '🔑',\n        route: '/users',\n        color: 'magenta',\n        children: [],\n      },\n      {\n        id: 5,\n        text: 'Devices',\n        icon: 'display_settings',\n        emoji: '📺',\n        route: '/roles',\n        children: [],\n        color: 'green',\n      },\n    ],\n  },\n]"
+                },
+                {
+                    "name": "ItemIconTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #itemIcon let-item=\"item\">\n          <span>{{item.emoji}}</span>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+                },
+                {
+                    "name": "ItemTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #item let-item=\"item\">\n          <span>{{item.emoji}}</span><i style=\"color: {{item.color}}\">{{ item.text }}</i>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+                },
+                {
+                    "name": "ItemTexTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  render: (args: Partial<NavListComponent>) => ({\n    props: args,\n    template: `\n      <ngbiz-nav-list [activeItemId]=\"activeItemId\" [items]=\"items\">\n        <ng-template #itemText let-item=\"item\">\n          <i style=\"color: {{item.color}}\">{{ item.text }}</i>\n        </ng-template>\n      </ngbiz-nav-list>\n    `,\n  }),\n  args: {\n    activeItemId: 1,\n    items: demoItems,\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<NavListComponent>",
+                    "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
+                }
+            ],
             "projects/ngx-core-business/components/src/process-button/process-button.stories.ts": [
                 {
                     "name": "Default",
@@ -12983,28 +13158,6 @@
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "/(((^https?)|(^ftp)):\\/\\/((([\\-\\w]+\\.)+\\w{2,3}(\\/[%\\-\\w]+(\\.\\w{2,})?)*(([\\w\\-\\.\\?\\\\\\/+@&#;`~=%!]*)(\\.\\w{2,})?)*)|(localhost|LOCALHOST))\\/?)/i"
-                }
-            ],
-            "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts": [
-                {
-                    "name": "Example",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    activeItemId: 1,\n    items: [\n      { id: 1, text: 'Home', icon: 'home', route: '/home', children: [] },\n      { id: 2, text: 'Inbox', icon: 'inbox', route: '/inbox', children: [] },\n      {\n        id: 3,\n        text: 'Configuration',\n        icon: 'settings',\n        route: '/config',\n        children: [\n          {\n            id: 4,\n            text: 'Credentials',\n            icon: 'key',\n            route: '/users',\n            children: [],\n          },\n          {\n            id: 5,\n            text: 'Devices',\n            icon: 'display_settings',\n            route: '/roles',\n            children: [],\n          },\n        ],\n      },\n    ],\n  },\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<NavListComponent>",
-                    "defaultValue": "{\n  title: 'Components/NavList',\n  tags: ['autodocs'],\n  component: NavListComponent,\n  decorators: [\n    moduleMetadata({\n      imports: [NgBizNavListModule, CommonModule, RouterTestingModule],\n    }),\n  ],\n}"
                 }
             ],
             "projects/ngx-core-business/components/src/data-error-view/data-error-view.component.ts": [
@@ -13192,19 +13345,6 @@
                     "kind": 183
                 }
             ],
-            "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<DataErrorViewComponent>",
-                    "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
             "projects/ngx-core-business/components/src/edition-pin/edition-pin.stories.ts": [
                 {
                     "name": "Story",
@@ -13212,6 +13352,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<EditionPinComponent>",
                     "file": "projects/ngx-core-business/components/src/edition-pin/edition-pin.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DataErrorViewComponent>",
+                    "file": "projects/ngx-core-business/components/src/data-error-view/data-error-view.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -13378,7 +13531,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 3,
+        "count": 2,
         "status": "low",
         "files": [
             {
@@ -13957,10 +14110,10 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-item.model.ts",
+                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-item.type.ts",
                 "type": "interface",
                 "linktype": "interface",
-                "name": "NavItemModel",
+                "name": "NavItem",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
                 "status": "low"
@@ -13971,7 +14124,7 @@
                 "linktype": "component",
                 "name": "NavListComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {
@@ -13979,7 +14132,47 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Example",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "demoItems",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ItemIconTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ItemTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ngx-core-business/components/src/nav-list/nav-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ItemTexTemplate",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

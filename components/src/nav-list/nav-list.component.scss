@@ -1,11 +1,9 @@
 @import "../../../scss/vars";
 $levelSpacing: 22px;
 $itemHorizontalPadding: 16px;
-$itemFontSize: 14px;
 
 a {
   cursor: pointer;
-  font-size: $itemFontSize;
   &.l1 {
     padding-left: $itemHorizontalPadding;
   }
@@ -71,14 +69,12 @@ mat-nav-list {
   width: 100%;
   .mat-mdc-list-item {
     height: $ngbiz-nav-item-height;
-    font-size: 14px;
   }
 }
 mat-icon {
   width: 18px;
   height: 18px;
   font-size: 18px;
-  margin-right: 4px;
   line-height: 18px !important;
   color: #616161;
 }
@@ -86,6 +82,7 @@ mat-icon {
 .menu-item {
   display: flex;
   align-items: center;
+  column-gap: 6px;
   > * {
     line-height: 20px;
   }
@@ -99,7 +96,6 @@ mat-expansion-panel {
 mat-expansion-panel-header {
   padding: 0 $itemHorizontalPadding;
   height: $ngbiz-nav-item-height !important;
-  font-size: $itemFontSize;
   &.l2 {
     padding-left: $itemHorizontalPadding + $levelSpacing;
   }
@@ -112,4 +108,10 @@ mat-expansion-panel-header {
   &.mat-expanded {
     height: $ngbiz-nav-item-height;
   }
+}
+
+.item__text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
