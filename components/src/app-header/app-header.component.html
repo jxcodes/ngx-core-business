@@ -1,32 +1,50 @@
-<mat-toolbar role="heading">
-  <button mat-button class="menu-button" (click)="menuButtonClick.emit()">
+<mat-toolbar role="heading" class="px-1">
+  <button mat-icon-button class="menu-button" (click)="menuButtonClick.emit()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>{{appName}}</span>
-  <span class="flex-1"></span>
-  <ng-content select="[userInfo]"></ng-content>
-  <div *ngIf="showDefaultUserInfo" class="ngbiz-user-pin cursor-pointer mr-4" (click)="showMenu = !showMenu"
-    cdkOverlayOrigin #trigger="cdkOverlayOrigin">
-    <ngbiz-avatar [src]="user?.picture" [name]="user?.name" cdkOverlayOrigin [size]="avatarSize"></ngbiz-avatar>
-    <span class="ml-2 ngbiz-username">{{user?.name}}</span>
+  <ng-content select="[beforeAppName]"></ng-content>
+  <span *ngIf="appName" class="px-[6px]">{{ appName }}</span>
+  <ng-content select="[afterAppName]"></ng-content>
+  <div class="flex-1 flex">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <ng-content select="[beforeUser]"></ng-content>
+  <div
+    *ngIf="showDefaultUserInfo"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+    class="flex cursor-pointer px-[6px]"
+  >
+    <ngbiz-avatar
+      [src]="user?.picture"
+      [name]="user?.name"
+      [size]="avatarSize"
+      (click)="showMenu = !showMenu"
+    ></ngbiz-avatar>
     <!-- User menu -->
-    <ng-template cdkConnectedOverlayHasBackdrop cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger"
-      [cdkConnectedOverlayOpen]="showMenu" cdkConnectedOverlayBackdropClass="cdk-overlay-dark-backdrop"
-      (backdropClick)="showMenu = false">
+    <ng-template
+      cdkConnectedOverlayHasBackdrop
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="showMenu"
+      cdkConnectedOverlayBackdropClass="cdk-overlay-dark-backdrop"
+      (backdropClick)="showMenu = false"
+    >
       <div class="modal-menu bg-gray-50 p-4 shadow-md mt-1 rounded flex">
         <ngbiz-avatar [src]="user?.picture" [name]="user?.name"></ngbiz-avatar>
         <div class="pl-3">
           <div class="min-h-8 flex flex-col justify-center">
-            <div>{{user?.name}}</div>
-            <div *ngIf="user?.email" class="text-xs">{{user?.email}}</div>
+            <div>{{ user?.name }}</div>
+            <div *ngIf="user?.email" class="text-xs">{{ user?.email }}</div>
           </div>
           <div class="mt-2 text-right">
             <button mat-button (click)="logoutButtonClick.emit()">
-              <mat-icon>exit_to_app</mat-icon><span>{{logoutText}}</span>
+              <mat-icon>exit_to_app</mat-icon><span>{{ logoutText }}</span>
             </button>
           </div>
         </div>
       </div>
     </ng-template>
   </div>
+  <ng-content select="[afterUser]"></ng-content>
 </mat-toolbar>

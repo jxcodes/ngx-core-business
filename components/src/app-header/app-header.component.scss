@@ -7,28 +7,22 @@
 mat-toolbar {
   background-color: var(--mat-sys-primary);
   color: var(--mat-sys-on-primary);
-}
-
-.mat-mdc-button.menu-button {
-  color: var(--mat-sys-on-primary);
-  margin-right: 4px;
-  min-width: unset;
-  border-radius: 0;
   height: 100%;
-
-  mat-icon {
-    font-size: 26px;
-    height: 26px;
-    width: 26px;
-    margin: 0;
-  }
+  font-size: 13px;
+  padding: 0 6px;
 }
 
-.ngbiz-user-pin {
-  border-radius: 16px;
-
-  & > * {
-    vertical-align: middle;
+.mat-mdc-icon-button.menu-button {
+  color: var(--mat-sys-on-primary);
+  border-radius: 0;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  mat-icon {
+    font-size: 24px;
+    height: 24px;
+    width: 24px;
+    margin: 0;
   }
 }
 
@@ -48,11 +42,6 @@ mat-toolbar {
 .modal-menu {
   font-family: var(--mat-sys-body-medium-font);
   font-size: var(--mat-sys-body-medium-size);
-}
-mat-toolbar {
-  height: 100%;
-  font-size: 13px;
-  padding: 0;
 }
 
 .block-user-idenfication {
